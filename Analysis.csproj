@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5CF762E6-FA1E-4CFC-BD12-A8D8EA530EF4}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Analysis</RootNamespace>
+    <AssemblyName>Analysis</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WeifenLuo.WinFormsUI.Docking">
+      <HintPath>C:\Users\PC\Desktop\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
+    </Reference>
+    <Reference Include="ZedGraph">
+      <HintPath>C:\Users\PC\Desktop\ZedGraph.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classify\ClassifyMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Classify\ClassifyMain.Designer.cs">
+      <DependentUpon>ClassifyMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\AnalysisMethodForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\AnalysisMethodForm.Designer.cs">
+      <DependentUpon>AnalysisMethodForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SimpleLinearBackAnalyze\AsscociationAnalyzeMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SimpleLinearBackAnalyze\AsscociationAnalyzeMain.Designer.cs">
+      <DependentUpon>AsscociationAnalyzeMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SimpleLinearBackAnalyze\AssociatedAtrributionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SimpleLinearBackAnalyze\AssociatedAtrributionForm.Designer.cs">
+      <DependentUpon>AssociatedAtrributionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SimpleLinearBackAnalyze\AssociatedZedForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SimpleLinearBackAnalyze\AssociatedZedForm.Designer.cs">
+      <DependentUpon>AssociatedZedForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\Attribute.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\Attribute.Designer.cs">
+      <DependentUpon>Attribute.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BasicalAnalyze\BasicalDataAnalyzeMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BasicalAnalyze\BasicalDataAnalyzeMain.Designer.cs">
+      <DependentUpon>BasicalDataAnalyzeMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BasicalAnalyze\BasicalStastisticsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BasicalAnalyze\BasicalStastisticsForm.Designer.cs">
+      <DependentUpon>BasicalStastisticsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BasicalAnalyze\BasicalStastisticsZedForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BasicalAnalyze\BasicalStastisticsZedForm.Designer.cs">
+      <DependentUpon>BasicalStastisticsZedForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PartsForm\CaseInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PartsForm\CaseInfoForm.Designer.cs">
+      <DependentUpon>CaseInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUtils\DataFromService.cs" />
+    <Compile Include="Main\DataZedGraphicForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\DataZedGraphicForm.Designer.cs">
+      <DependentUpon>DataZedGraphicForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AssociatedAnalyze\DigAssociationAnalyzeMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AssociatedAnalyze\DigAssociationAnalyzeMain.Designer.cs">
+      <DependentUpon>DigAssociationAnalyzeMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InteractiveAgent.cs" />
+    <Compile Include="FormUtils\ListViewEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Main\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\OperationRecordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\OperationRecordForm.Designer.cs">
+      <DependentUpon>OperationRecordForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="FormUtils\RichTextBoxEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Main\SchemeListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\SchemeListForm.Designer.cs">
+      <DependentUpon>SchemeListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SchemeModel.cs" />
+    <Compile Include="Main\SchemeRunTimesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\SchemeRunTimesForm.Designer.cs">
+      <DependentUpon>SchemeRunTimesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SimulationAnalyze\SimulatingStatisticsAnalyzeMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SimulationAnalyze\SimulatingStatisticsAnalyzeMain.Designer.cs">
+      <DependentUpon>SimulatingStatisticsAnalyzeMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SimulationAnalyze\SimulatingStatisticsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SimulationAnalyze\SimulatingStatisticsForm.Designer.cs">
+      <DependentUpon>SimulatingStatisticsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SimulationAnalyze\SimulatingStatisticsZedForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SimulationAnalyze\SimulatingStatisticsZedForm.Designer.cs">
+      <DependentUpon>SimulatingStatisticsZedForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Statsitic.cs" />
+    <Compile Include="PartsForm\ZedGraphBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PartsForm\ZedGraphBase.Designer.cs">
+      <DependentUpon>ZedGraphBase.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Classify\ClassifyMain.resx">
+      <DependentUpon>ClassifyMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SimpleLinearBackAnalyze\AsscociationAnalyzeMain.resx">
+      <DependentUpon>AsscociationAnalyzeMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BasicalAnalyze\BasicalDataAnalyzeMain.resx">
+      <DependentUpon>BasicalDataAnalyzeMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\AnalysisMethodForm.resx">
+      <DependentUpon>AnalysisMethodForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\Attribute.resx">
+      <DependentUpon>Attribute.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\DataZedGraphicForm.resx">
+      <DependentUpon>DataZedGraphicForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AssociatedAnalyze\DigAssociationAnalyzeMain.resx">
+      <DependentUpon>DigAssociationAnalyzeMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\OperationRecordForm.resx">
+      <DependentUpon>OperationRecordForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Main\SchemeListForm.resx">
+      <DependentUpon>SchemeListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\SchemeRunTimesForm.resx">
+      <DependentUpon>SchemeRunTimesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

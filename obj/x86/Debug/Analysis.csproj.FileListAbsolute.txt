@@ -1,0 +1,49 @@
+D:\work_space\cSharp_work\Analysis\Analysis\bin\Debug\Analysis.exe.config
+D:\work_space\cSharp_work\Analysis\Analysis\bin\Debug\Analysis.exe
+D:\work_space\cSharp_work\Analysis\Analysis\bin\Debug\Analysis.pdb
+D:\work_space\cSharp_work\Analysis\Analysis\obj\x86\Debug\Analysis.csprojResolveAssemblyReference.cache
+D:\work_space\cSharp_work\Analysis\Analysis\obj\x86\Debug\Analysis.DataZedGraphicForm.resources
+D:\work_space\cSharp_work\Analysis\Analysis\obj\x86\Debug\Analysis.MainForm.resources
+D:\work_space\cSharp_work\Analysis\Analysis\obj\x86\Debug\Analysis.Properties.Resources.resources
+D:\work_space\cSharp_work\Analysis\Analysis\obj\x86\Debug\Analysis.SchemeListForm.resources
+D:\work_space\cSharp_work\Analysis\Analysis\obj\x86\Debug\Analysis.SchemeRunTimesForm.resources
+D:\work_space\cSharp_work\Analysis\Analysis\obj\x86\Debug\Analysis.csproj.GenerateResource.Cache
+D:\work_space\cSharp_work\Analysis\Analysis\obj\x86\Debug\Analysis.exe
+D:\work_space\cSharp_work\Analysis\Analysis\obj\x86\Debug\Analysis.pdb
+D:\work_space\cSharp_work\Analysis\Analysis\obj\x86\Debug\Analysis.OperationRecordForm.resources
+D:\work_space\cSharp_work\Analysis\Analysis\obj\x86\Debug\Analysis.AnalysisMethodForm.resources
+D:\work_space\cSharp_work\Analysis\Analysis\obj\x86\Debug\Analysis.attribute.resources
+E:\Code_workspace\visual studio 2010\Projects\MainForm1\Analysis\bin\Debug\Analysis.exe.config
+E:\Code_workspace\visual studio 2010\Projects\MainForm1\Analysis\bin\Debug\Analysis.exe
+E:\Code_workspace\visual studio 2010\Projects\MainForm1\Analysis\bin\Debug\Analysis.pdb
+E:\Code_workspace\visual studio 2010\Projects\MainForm1\Analysis\obj\x86\Debug\Analysis.AnalysisMethodForm.resources
+E:\Code_workspace\visual studio 2010\Projects\MainForm1\Analysis\obj\x86\Debug\Analysis.Attribute.resources
+E:\Code_workspace\visual studio 2010\Projects\MainForm1\Analysis\obj\x86\Debug\Analysis.DataZedGraphicForm.resources
+E:\Code_workspace\visual studio 2010\Projects\MainForm1\Analysis\obj\x86\Debug\Analysis.MainForm.resources
+E:\Code_workspace\visual studio 2010\Projects\MainForm1\Analysis\obj\x86\Debug\Analysis.OperationRecordForm.resources
+E:\Code_workspace\visual studio 2010\Projects\MainForm1\Analysis\obj\x86\Debug\Analysis.Properties.Resources.resources
+E:\Code_workspace\visual studio 2010\Projects\MainForm1\Analysis\obj\x86\Debug\Analysis.SchemeListForm.resources
+E:\Code_workspace\visual studio 2010\Projects\MainForm1\Analysis\obj\x86\Debug\Analysis.SchemeRunTimesForm.resources
+E:\Code_workspace\visual studio 2010\Projects\MainForm1\Analysis\obj\x86\Debug\Analysis.csproj.GenerateResource.Cache
+E:\Code_workspace\visual studio 2010\Projects\MainForm1\Analysis\obj\x86\Debug\Analysis.exe
+E:\Code_workspace\visual studio 2010\Projects\MainForm1\Analysis\obj\x86\Debug\Analysis.pdb
+E:\Code_workspace\visual studio 2010\Projects\MainForm1\Analysis\obj\x86\Debug\Analysis.csprojResolveAssemblyReference.cache
+E:\Code_workspace\visual studio 2010\Projects\MainForm1\Analysis\obj\x86\Debug\Analysis.csproj.CoreCompileInputs.cache
+C:\Users\Administrator.PC-20140805XJXQ\Desktop\Analysis\obj\x86\Debug\Analysis.AnalysisMethodForm.resources
+C:\Users\Administrator.PC-20140805XJXQ\Desktop\Analysis\obj\x86\Debug\Analysis.Attribute.resources
+C:\Users\Administrator.PC-20140805XJXQ\Desktop\Analysis\obj\x86\Debug\Analysis.DataZedGraphicForm.resources
+C:\Users\Administrator.PC-20140805XJXQ\Desktop\Analysis\obj\x86\Debug\Analysis.MainForm.resources
+C:\Users\Administrator.PC-20140805XJXQ\Desktop\Analysis\obj\x86\Debug\Analysis.OperationRecordForm.resources
+C:\Users\Administrator.PC-20140805XJXQ\Desktop\Analysis\obj\x86\Debug\Analysis.Properties.Resources.resources
+C:\Users\Administrator.PC-20140805XJXQ\Desktop\Analysis\obj\x86\Debug\Analysis.SchemeListForm.resources
+C:\Users\Administrator.PC-20140805XJXQ\Desktop\Analysis\obj\x86\Debug\Analysis.SchemeRunTimesForm.resources
+C:\Users\Administrator.PC-20140805XJXQ\Desktop\Analysis\obj\x86\Debug\Analysis.csproj.GenerateResource.Cache
+C:\Users\Administrator.PC-20140805XJXQ\Desktop\Analysis\bin\Debug\Analysis.exe.config
+C:\Users\Administrator.PC-20140805XJXQ\Desktop\Analysis\bin\Debug\Analysis.exe
+C:\Users\Administrator.PC-20140805XJXQ\Desktop\Analysis\bin\Debug\Analysis.pdb
+C:\Users\Administrator.PC-20140805XJXQ\Desktop\Analysis\obj\x86\Debug\Analysis.exe
+C:\Users\Administrator.PC-20140805XJXQ\Desktop\Analysis\obj\x86\Debug\Analysis.pdb
+C:\Users\Administrator.PC-20140805XJXQ\Desktop\Analysis\obj\x86\Debug\Analysis.DigAssociationAnalyzeMain.resources
+C:\Users\Administrator.PC-20140805XJXQ\Desktop\Analysis\obj\x86\Debug\Analysis.BasicalDataAnalyzeMain.resources
+C:\Users\Administrator.PC-20140805XJXQ\Desktop\Analysis\obj\x86\Debug\Analysis.AsscociationAnalyzeMain.resources
+C:\Users\Administrator.PC-20140805XJXQ\Desktop\Analysis\obj\x86\Debug\Analysis.Classify.ClassifyMain.resources
