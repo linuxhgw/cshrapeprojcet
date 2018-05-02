@@ -10,7 +10,7 @@ using Analysis.Classify;
 namespace Analysis {
     public partial class AnalysisMethodForm : WeifenLuo.WinFormsUI.Docking.DockContent {
         SchemeModel model = SchemeModel.getInstance();
-       
+        const int WS_EX_NOACTIVATE = 0x08000000; 
         private AnalysisMethodForm()
         {
             InitializeComponent();
@@ -42,9 +42,10 @@ namespace Analysis {
             switch (strTreeNodeText)
             {
                 case "基本分析":
+                    
                     BasicalDataAnalyzeMain basicalDataAnalyzeWnd = new BasicalDataAnalyzeMain();
-                    basicalDataAnalyzeWnd.Show();
-                    basicalDataAnalyzeWnd.MdiParent = this;
+                    basicalDataAnalyzeWnd.Show(this);
+                    
                     break;
                 case "简单线性回归":
                      AssociatedAtrributionForm associatedAtrributionForm = new AssociatedAtrributionForm();
@@ -52,25 +53,26 @@ namespace Analysis {
                     if (associatedAtrributionForm.DialogResult==(DialogResult.OK))
                     {
                         AsscociationAnalyzeMain asscociationAnalyzeMain = new AsscociationAnalyzeMain();
-                        asscociationAnalyzeMain.Show();
-                        asscociationAnalyzeMain.MdiParent = this;
+                        asscociationAnalyzeMain.Show(this);
+                    //    asscociationAnalyzeMain.MdiParent = this;
                     }
                    
                     break;
-                case "关联":                  
+                case "关联":    
+                    //Appriori
                      DigAssociationAnalyzeMain digAssociationAnalyzeMain = new DigAssociationAnalyzeMain();
-                    digAssociationAnalyzeMain.Show();
-                    digAssociationAnalyzeMain.MdiParent = this;
+                    digAssociationAnalyzeMain.Show(this);
+                   // digAssociationAnalyzeMain.MdiParent = this;
                     break;
                 case "时域分析":
                     SimulatingStatisticsAnalyzeMain simulatingStatisticsAnalyzeMain=new SimulatingStatisticsAnalyzeMain();
-                    simulatingStatisticsAnalyzeMain.Show();
-                    simulatingStatisticsAnalyzeMain.MdiParent = this;
+                    simulatingStatisticsAnalyzeMain.Show(this);
+                   // simulatingStatisticsAnalyzeMain.MdiParent = this;
                     break;
                 case "分类":
                     ClassifyMain classifyMain = new ClassifyMain();
-                    classifyMain.Show();
-                    classifyMain.MdiParent = this;
+                    classifyMain.Show(this);
+                   // classifyMain.MdiParent = this;
                     break;
                 default:
                     break;

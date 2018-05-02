@@ -5,9 +5,6 @@ using System.Text;
 
 namespace Analysis {
     public class InteractiveAgent {
-
-
-
         public DataZedGraphicForm datagraph;
         public SchemeListForm schemelist;
         public SchemeRunTimesForm runtimes;
@@ -34,31 +31,32 @@ namespace Analysis {
             }
             return instance;
         }
-
-
-        
-
         public void SchemeToDataGraphic() {
             instance.datagraph.SchemeMessage();
         }
 
-        public void SchemeToRuntimes() {
+        public void SchemeToRuntimes()
+        {
             instance.runtimes.runtimeMessage();
         }
 
-        public void RuntimeToDataGraghic() {
+        public void RuntimeToDataGraghic()
+        {
             instance.datagraph.runtimesage();
         }
 
-        public void SchemeToAtrr() {
+        public void SchemeToAtrr()
+        {
             instance.attribute.Message();
-            }
+        }
 
-        public void SchemeToRecord() {
+        public void SchemeToRecord()
+        {
             instance.record.Message();
         }
 
-        public void RuntimeToRcord() {
+        public void RuntimeToRcord()
+        {
             instance.record.RunMessage();
         }
 
@@ -68,21 +66,26 @@ namespace Analysis {
             basicalStastisticsZedForm.informedToGetCurStaList();
         }
 
-        //重置步长刷新后，改变数据
-        public void BasicalRefresh()
-        {    
-            basicalStastiticWnd.initailWnd();
+        //通知SimulatingStatisticsZedForm设置当前统计参数
+        public void informSimuZedFormShowInformedStatistics()
+        {
+            simulatingStatisticsZedForm.informedToGetCurSimuList();
         }
+       
+        //通知SimuStastisticFrom获取所有的仿真统计数据
+        public void informSimuStastisticFromRefreshNewData()
+        {
+            simulatingStatisticsForm.informedToGetAllSimuStastistic();
+        }
+        public void informBasicalStastisticFromRefreshNewData()
+        {
+            basicalStastiticWnd.informedToGetAllStastistic();
+        }
+
         //通知BasicalStastisticsForm将checkbox全部不选
         public void informStaWndAllNonCheck()
         {
-             basicalStastiticWnd.setAllCheckboxNon();
-        }
-
-        //通知SimulatingStatisticsZedForm设置当前统计参数
-        public void informSimuZedFormShowInformedStatistics()
-        {     
-            simulatingStatisticsZedForm.informedToGetCurSimuList();
+            basicalStastiticWnd.setAllCheckboxNon();
         }
 
         //通知SimulatingStatisticsForm将checkbox全部不选
@@ -95,7 +98,7 @@ namespace Analysis {
         {
             associatedZedForm.getcoefficient();
         }
-        
+
 
     }
 }

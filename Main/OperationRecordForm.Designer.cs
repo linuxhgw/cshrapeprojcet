@@ -32,9 +32,10 @@
             this.textBox1.Location = new System.Drawing.Point(0, 0);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
+            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.textBox1.Size = new System.Drawing.Size(354, 135);
             this.textBox1.TabIndex = 0;
-          
+            this.textBox1.WordWrap = false;
             // 
             // OperationRecordForm
             // 
@@ -42,8 +43,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(354, 135);
             this.Controls.Add(this.textBox1);
+            this.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Name = "OperationRecordForm";
-            this.Text = "OperationRecordForm";
+            this.Text = "历史信息";
             this.ResumeLayout(false);
             this.PerformLayout();
 

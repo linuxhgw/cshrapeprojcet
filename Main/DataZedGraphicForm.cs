@@ -12,27 +12,58 @@ namespace Analysis {
     public partial class DataZedGraphicForm : WeifenLuo.WinFormsUI.Docking.DockContent {
 
         public SchemeModel model = SchemeModel.getInstance();
+        public DataFromService service = new DataFromService();
+        private ReqStr reqStr = ReqStr.getInstance();
+
+        string stepValueURL;
+
+       
+        private string reqStrTest;
+        //方案名-仿真次数-属性名-起始步长-终止步长
+
+
+        public PointPairList getStepValueFromService(string reqStr)
+        {
+            PointPairList list = new PointPairList();
+            string result = service.HttpGet(stepValueURL + reqStr);
+            string[] arrStepValue = result.Split('-');
+            for (int i = 0; i + 1 < arrStepValue.Length; i = i + 2)
+            {
+                list.Add(Double.Parse(arrStepValue[i]), Double.Parse(arrStepValue[i + 1]));
+            }
+            return list;
+        }
+        private PointPairList getPoint(int runtime)
+        {
+            PointPairList list;
+                string reqStrTest = "";
+        reqStrTest = reqStrTest + model.GetLateIdStatus()[0] + "-";//方案
+            reqStrTest = reqStrTest + model.GetHistoryrun()[runtime] + "-";// 运行次数
+            reqStrTest = reqStrTest + model.GetLateIdStatus()[1] + "-";//成员1
+            reqStrTest = reqStrTest + model.GetLateIdStatus()[1] + "-";//属性1
+          
+            reqStrTest = reqStrTest +model.getStartStep()+"-";//步长
+            reqStrTest = reqStrTest + model.getEndStep() ;
+            Console.WriteLine(reqStrTest);
+            list = getStepValueFromService(reqStrTest);
+            return list;
+        }
         //分别存储,方案名.方案成员,方案属性,方案的第几次
         public List<string> schememessage;
         public List<int> runtimessage;
-
+       
 
         public DataZedGraphicForm() {
             InitializeComponent();
+            reqStr.Url();
+            stepValueURL = reqStr.StepValueURL;
+            model.setStartStep(this.startStepTextBox.Text);
+            model.setEndStep(this.endStepTextBox.Text);
             // InitDraw();
 
         }
 
-        public void InitDraw() {
-
-            CreateGraph_static(this.zedGraphControl1);
-            this.zedGraphControl1.GraphPane.CurveList.Clear();
-            this.zedGraphControl1.GraphPane.GraphObjList.Clear();
-            ChooseScheme();
-
-            zedGraphControl1.AxisChange();
-            zedGraphControl1.Refresh();//刷新
-        }
+     
 
 
         //传递过来的信息
@@ -43,38 +74,40 @@ namespace Analysis {
         }
         public void runtimesage() {
             runtimessage = model.GetHistoryrun();
-            if (schememessage.Count == 3) {
+            if (schememessage.Count == 3 && runtimessage.Count != 0)
+            {
+
                 InitDraw();
+            }
+            else {
+                this.zedGraphControl1.GraphPane.CurveList.Clear();
+                this.zedGraphControl1.GraphPane.GraphObjList.Clear();
+                zedGraphControl1.AxisChange();
+                zedGraphControl1.Refresh();//刷新
+
             }
 
         }
 
 
         //根据传来的信息进行方案的选择
-        public void ChooseScheme() {
+    
 
-            if (schememessage[2].Equals("(005)属性1")) {//
-                if (runtimessage == null)
-                    return;
-                for (int i = 0; i < runtimessage.Count; i++) {
-                    if (runtimessage[i] == 3) {
-                        TestResultForm2(TestData());
-                    }
-                    if (runtimessage[i] == 2) {
-                        TestResultForm(TestData2());
-                    }
-                }
+#region
+        public void InitDraw()
+        {
 
-
+            CreateGraph_static(this.zedGraphControl1);
+            this.zedGraphControl1.GraphPane.CurveList.Clear();
+            this.zedGraphControl1.GraphPane.GraphObjList.Clear();
+            for (int i = 0; i < runtimessage.Count; i++) {
+                PointPairList list= getPoint(i);
+                TestResultForm2(list);
             }
-
-            else if (schememessage[2].Equals("(006)属性2")) {
-                TestResultForm(TestData3());
-
-            }
-
+           
+            zedGraphControl1.AxisChange();
+            zedGraphControl1.Refresh();//刷新
         }
-
         //信息的初始化
         public void CreateGraph_static(ZedGraphControl zedgraphcontrol) {
 
@@ -98,7 +131,7 @@ namespace Analysis {
             myPane.XAxis.Scale.FontSpec.Angle = 75; //横坐标字体角度
             zedgraphcontrol.GraphPane.Title.FontSpec.Size = 20;
             zedgraphcontrol.AutoScroll = true;
-            zedgraphcontrol.GraphPane.XAxis.Type = ZedGraph.AxisType.DateAsOrdinal; //X轴属性类型
+           // zedgraphcontrol.GraphPane.XAxis.Type = ZedGraph.AxisType.DateAsOrdinal; //X轴属性类型
             zedgraphcontrol.PanModifierKeys = Keys.Shift;//移动坐标图
 
 
@@ -133,50 +166,9 @@ namespace Analysis {
 
 
         }
+#endregion
 
-    
-        public PointPairList TestData() {
-            double x, y1, y2;
-            PointPairList list1 = new PointPairList();
-            PointPairList list2 = new PointPairList();
-            for (int i = 0; i < 36; i++) {
-                x = (double)i + 5;
-                y1 = 1.5 + Math.Sin((double)i * 0.2);
-                y2 = 3.0 * (1.5 + Math.Sin((double)i * 0.2));
-                list1.Add(x, y1);
-                list2.Add(x, y2);
-            }
-            return list1;
 
-        }
-        public PointPairList TestData2() {
-            double x, y1, y2;
-            PointPairList list1 = new PointPairList();
-            PointPairList list2 = new PointPairList();
-            for (int i = 0; i < 36; i++) {
-                x = (double)i + 5;
-                y1 = 1.5 + Math.Sin((double)i * 0.2);
-                y2 = 3.0 * (1.5 + Math.Sin((double)i * 0.2));
-                list1.Add(x, y1);
-                list2.Add(x, y2);
-            }
-            return list2;
-
-        }
-        public PointPairList TestData3() {
-            double x, y1, y2;
-            PointPairList list1 = new PointPairList();
-            PointPairList list2 = new PointPairList();
-            for (int i = 0; i < 36; i++) {
-                x = (double)i + 5;
-                y1 = 1.5 + Math.Sin((double)i * 0.2);
-                y2 = 4.0 * (1.5 + Math.Sin((double)i * 0.2));
-                list1.Add(x, y1);
-                list2.Add(x, y2);
-            }
-            return list2;
-
-        }
 
         public void TestResultForm(PointPairList list1) {
 
@@ -194,6 +186,7 @@ namespace Analysis {
 
 
             myCurve = my.AddCurve("对比数据", list1, Color.FromArgb(R, G, B), SymbolType.Circle);
+         
             myCurve.Symbol.Fill = new Fill(Color.FromArgb(R, G, B));
 
 
@@ -216,9 +209,11 @@ namespace Analysis {
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("调用");
+            
             model.setStartStep(this.startStepTextBox.Text);
             model.setEndStep(this.endStepTextBox.Text);
+            InitDraw();
+
         }
     }
 

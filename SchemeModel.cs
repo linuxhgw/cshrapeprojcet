@@ -30,12 +30,12 @@ namespace Analysis {
         string late="";
         private string startStep = "30", endStep = "50";              //仿真步长区间
         private double[] linearResults = new double[3];         //线性相关参数
-        private List<Statsitic> simuCurrentList;
+        private List<Statsitic> simuCurrentList = new List<Statsitic>();
         private List<Statsitic> staCurrentList = new List<Statsitic>();     //统计数值
-        private string anotherAttribute = "3";        //小弹窗：关联窗口的同一个成员的两个属性记录
+        private string anotherAttribute = "";        //小弹窗：关联窗口的同一个成员的两个属性记录
         private string anotherAttributeId;
-
-        private List<Statsitic> allStastistic;
+        private bool isDynamicLoad = false;
+        private List<Statsitic> allStastistic=null,allSimuStatistic=null;
 
         public void AddStatus(string str) {
             
@@ -88,21 +88,36 @@ namespace Analysis {
             return path;
         }
 
-        public List<int> GetLateIdStatus() {
+        public List<int> GetLateIdStatus()
+        {
             List<string> name;
             List<int> id = new List<int>();
-           
+
+            List<string[]> split_list = new List<string[]>();
             name = GetLateNameStatus();
+
             if (name.Count == 0)
                 return null;
-            for (int i = 1; i < name.Count; i++) {
-                id.Add(Int32.Parse(name[i].Substring(1, 3)));
+            for (int i = 0; i < name.Count; i++)
+            {
+
+                split_list.Add(name[i].Split('-'));
+
             }
-            for (int i = 0; i < id.Count; i++) {
-                Console.WriteLine(id[i]);
+            for (int i = 0; i < split_list.Count; i++)
+            {
+                id.Add(Int32.Parse(split_list[i][1]));
             }
+
+
+            for (int i = 0; i < id.Count; i++)
+            {
+                Console.WriteLine("id为" + id[i]);
+            }
+
             return id;
         }
+
 
         public void AddHistoryrun(List<string> runtimes) {
             runtime.Clear() ;
@@ -130,6 +145,16 @@ namespace Analysis {
         public List<Statsitic> getAllStastitic()
         {
             return this.allStastistic;
+        }
+     
+        public void setIsDynamicLoad(bool dynamic)
+        {
+            this.isDynamicLoad = dynamic;
+        }
+
+        public bool getDynamicLoad()
+        {
+            return this.isDynamicLoad;
         }
         //获取起始步长
         public string getStartStep()
@@ -184,9 +209,19 @@ namespace Analysis {
         {
             return this.anotherAttributeId;
         }
+     //设置所有仿真时域统计数据
+        public void setAllSimuStatistic(List<Statsitic> list)
+        {
+            this.allSimuStatistic = list;
+        }
+        //获取所有仿真时域统计数据
+        public List<Statsitic> getAllSimuStatistic()
+        {
+            return this.allSimuStatistic;
+        }
         public List<Statsitic> getSimuCurrentList()
         {
-            return simuCurrentList;
+           return this.simuCurrentList;
         }
 
         public void setSimuCurrentList(List<Statsitic> list)
@@ -217,6 +252,9 @@ namespace Analysis {
                 MessageBox.Show("列表长度：" + list.Count + "  " + temp.Type + "  " + temp.Val);
             }
         }
+
+
+   
 
     }
 }

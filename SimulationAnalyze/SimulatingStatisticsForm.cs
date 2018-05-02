@@ -13,66 +13,44 @@ namespace Analysis
     {
         private List<Statsitic> items;                                        //统计数据列表
         public InteractiveAgent agent = InteractiveAgent.getInstance();      //中介类
-        public SchemeModel model = SchemeModel.getInstance();                //模型类
+        public SchemeModel model = SchemeModel.getInstance();
+
         //构造函数---------------
-        public  SimulatingStatisticsForm()
+        public SimulatingStatisticsForm()
         {
-            InitializeComponent();
+             InitializeComponent();
+            initWnd();                                                //将统计数据植入窗体
+        }
+
+        //初始化
+        public void initWnd(){
+          
             items = new List<Statsitic>();
-            InitializeStastisticList(getSimuStastisticsFromService(null));          //获取并封装统计数据
-            setListView(items);                                         //将统计数据植入窗体
+            setDefaultStastistics(items);
+            setListView(items);
         }
 
-
-
-        //加载窗体时调用此方法获取四个统计值并返回，**顺序一定：超调量", "调节时间", "振荡次数", "延迟时间","上升时间","峰值时间………………………………………………
-        public double[] getSimuStastisticsFromService(string reqStr)
+        //默认显示
+        public void setDefaultStastistics(List<Statsitic> item)
         {
-            double[] arr = { 20, 5, 10, 44, 33, 22 };
-            return arr;
+            Statsitic s1 = new Statsitic("超调量");
+            Statsitic s2 = new Statsitic("调节时间");
+            Statsitic s3 = new Statsitic("振荡次数");
+            Statsitic s4 = new Statsitic("延迟时间");
+            Statsitic s5 = new Statsitic("上升时间");
+            Statsitic s6 = new Statsitic("峰值时间");
+            item.Add(s1);
+            item.Add(s2);
+            item.Add(s3);
+            item.Add(s4);
+            item.Add(s5);
+            item.Add(s6);
         }
 
-        /// <summary>
-        /// 根据服务获取数据，封装各统计项，并初始化，默认为0.0
-        /// </summary>
-        public void InitializeStastisticList(double[] dataArray)
-        {
-
-            Statsitic maxDeviation;
-            Statsitic responseTime;
-            Statsitic frequency;
-            Statsitic delayTime;
-            Statsitic upTime;
-            Statsitic peakTime;
-            maxDeviation = new Statsitic("超调量");       //默认值为0
-            items.Add(maxDeviation);
-            responseTime = new Statsitic("调节时间");
-            items.Add(responseTime);
-            frequency = new Statsitic("振荡次数");
-            items.Add(frequency);
-            delayTime = new Statsitic("延迟时间");
-            items.Add(delayTime);
-            upTime = new Statsitic("上升时间");
-            items.Add(upTime);
-            peakTime = new Statsitic("峰值时间");
-            items.Add(peakTime);
-
-
-            if (dataArray != null)
-            {
-                for (int i = 0; i < dataArray.Length; i++)
-                {
-                    items[i].Val = dataArray[i];
-                }
-            }
-        }
-
-        /// <summary>
-        /// 根据封装后的数据Statistics录入窗体统计值表项-----------------------------
-        /// </summary>
-        /// <param name="items"></param>
+        //统计数据织入窗体
         public void setListView(List<Statsitic> items)
         {
+            staWndListview.Items.Clear();
             ListViewItem listItem;
             for (int j = 0; j < items.Count; j++)
             {
@@ -122,7 +100,16 @@ namespace Analysis
                     staWndListview.Items[i].Checked = false;
                 }
             }
-
+            model.setSimuCurrentList(null);
+            agent.informSimuZedFormShowInformedStatistics();
         }
+
+        //中介者通知取数据--------------------------------------
+        public void informedToGetAllSimuStastistic()
+        {
+            items = model.getAllSimuStatistic();
+            setListView(items);
+        }
+
     }
 }

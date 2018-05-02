@@ -15,40 +15,29 @@ namespace Analysis
         private List<Statsitic> items = null;                                        //统计数据列表
         public InteractiveAgent agent = InteractiveAgent.getInstance();      //中介类
         public SchemeModel model = SchemeModel.getInstance();                //模型类
+     
 
-       // private static BasicalStastisticsForm basicalStastiticWnd = new BasicalStastisticsForm();
-        //获取窗体单例----------------
-      /*  public static BasicalStastisticsForm getBasicalStaWndInstance()
-        {
-            if (basicalStastiticWnd == null)
-            {
-                basicalStastiticWnd = new BasicalStastisticsForm();
-            }
-            return basicalStastiticWnd;
-        }
-       * */
-
-        //私有构造函数---------------
+        //构造函数---------------
         public BasicalStastisticsForm()
         {
+            InitializeComponent();
             initailWnd();
         }
 
         public void initailWnd()
         {
-
-            InitializeComponent();
             items = new List<Statsitic>();
-            this.items = model.getAllStastitic();
+            setDefaultStastistics(items);
+            //this.items = model.getAllStastitic();
             setListView(items);                   //将统计数据植入窗体
         }
-
         /// <summary>
         /// 根据封装后的数据Statistics录入窗体统计值表项-----------------------------
         /// </summary>
         /// <param name="items"></param>
         public void setListView(List<Statsitic> items)
         {
+            staWndListview.Items.Clear();
             ListViewItem listItem;
             for (int j = 0; j < items.Count; j++)
             {
@@ -59,6 +48,17 @@ namespace Analysis
             }
         }
 
+        public void setDefaultStastistics(List<Statsitic> item)
+        {
+            Statsitic s1 = new Statsitic("最大值");
+            Statsitic s2 = new Statsitic("最小值");
+            Statsitic s3 = new Statsitic("平均值"); 
+            Statsitic s4 = new Statsitic("方差");
+            item.Add(s1);
+            item.Add(s2);
+            item.Add(s3);
+            item.Add(s4);
+        }
         //窗口放大时listview的样式：列平均--------------------------------
         private void listView1_Resize(object sender, EventArgs e)
         {
@@ -84,8 +84,11 @@ namespace Analysis
                     list.Add(new Statsitic(type, value));
                 }
             }
-            model.setStaCurrentList(list);                         //实时设置model的staCurrentList
-            agent.informZedFormShowInformedStatistics();            //调用中介类，以期待中介类完成通知DataZedGraphicForm画出线条
+            if (list.Count > 0)
+            {
+                model.setStaCurrentList(list);                         //实时设置model的staCurrentList
+                agent.informZedFormShowInformedStatistics();
+            }//调用中介类，以期待中介类完成通知DataZedGraphicForm画出线条
         }
 
         //还原默认显示时，设置CheckBox为false------------------------
@@ -98,7 +101,15 @@ namespace Analysis
                     staWndListview.Items[i].Checked = false;
                 }
             }
+            model.setStaCurrentList(null);
+           agent.informZedFormShowInformedStatistics();
 
+        }
+        //中介类通知取服务端的所有统计数据
+        public void informedToGetAllStastistic()
+        {
+            items=model.getAllStastitic();
+            setListView(items);
         }
     }
 

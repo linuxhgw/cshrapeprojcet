@@ -28,10 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.staWndListview = new Analysis.ListViewEx();
             this.staNames = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.value = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.staWndListview = new Analysis.ListViewEx();
             this.SuspendLayout();
+            // 
+            // staNames
+            // 
+            this.staNames.Text = "统计值";
+            this.staNames.Width = 71;
+            // 
+            // value
+            // 
+            this.value.Text = "值";
+            this.value.Width = 222;
             // 
             // staWndListview
             // 
@@ -52,17 +62,7 @@
             this.staWndListview.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.listView1_ItemChecked);
             this.staWndListview.Resize += new System.EventHandler(this.listView1_Resize);
             // 
-            // staNames
-            // 
-            this.staNames.Text = "统计值";
-            this.staNames.Width = 71;
-            // 
-            // value
-            // 
-            this.value.Text = "值";
-            this.value.Width = 222;
-            // 
-            // BasicalStastisticsForm
+            // SimulatingStatisticsForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(162, 195);
@@ -72,7 +72,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "BasicalStastisticsForm";
+            this.Name = "SimulatingStatisticsForm";
             this.Text = "数据分析";
             this.ResumeLayout(false);
 

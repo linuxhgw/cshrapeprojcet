@@ -33,10 +33,12 @@ namespace Analysis
                 listPre.Add(list[i] + "-" + list[i + 1]);
             }
             string anotherAttribute = model.getAssociatedAttibuteName();
+
+            string anotherAttributeId = model.getAssociatedAttibuteId();
             if (!anotherAttribute.Equals(""))
             {
                 listPre.Add("成员-属性");
-                listPre.Add(list[1] + "-" + anotherAttribute);
+                listPre.Add(list[1] + "-" + anotherAttribute+"-"+anotherAttributeId);
                 listPre[0] = (Int32.Parse(listPre[0]) + 1).ToString();
             }
             return listPre;

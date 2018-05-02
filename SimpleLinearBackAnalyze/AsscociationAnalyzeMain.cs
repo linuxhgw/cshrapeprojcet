@@ -13,7 +13,11 @@ namespace Analysis
     {
         private AssociatedZedForm associatedZedForm;
         private CaseInfoForm caseInfoWnd;
-        private string simpLinearURL = "http://stuzhou:5555/api-analysis/getSimpleLRResult?";
+        private ReqStr reqStr = ReqStr.getInstance();
+        private string simpLinearURL;
+
+       
+
         public DataFromService service = new DataFromService();
         //attrIndex=datacollect0-3-1-2-3&steplength=1-5000";
 
@@ -24,6 +28,8 @@ namespace Analysis
         public AsscociationAnalyzeMain()
         {
             InitializeComponent();
+            reqStr.Url();
+            simpLinearURL = reqStr.SimpLinearURL;
 
         }
 
@@ -63,8 +69,19 @@ namespace Analysis
         //调用服务获取相关性系数……………………………………………………………………………………
         private double[] getRelations(string reqStr)
         {
-            reqStr = "attrIndex=datacollect0-3-1-2-3&steplength=1-5000";
-            string co=service.HttpGet(simpLinearURL + reqStr);
+            reqStr = "attrIndex=datacollect1-1-1-2-3&steplength=1-5000";
+             string reqStrTest = "attrIndex=datacollect";
+            reqStrTest = reqStrTest + model.GetLateIdStatus()[0] + "-";//方案
+            reqStrTest = reqStrTest + model.GetHistoryrun()[0] + "-";// 运行次数
+            reqStrTest = reqStrTest + model.GetLateIdStatus()[1] + "-";//成员1
+            reqStrTest = reqStrTest + model.GetLateIdStatus()[1] + "-";//属性1
+            reqStrTest = reqStrTest + model.getAssociatedAttibuteId() ;//属性2
+            reqStrTest = reqStrTest + "&steplength=1-5000";//步长
+            Console.WriteLine("reqstrTest_" + reqStrTest);
+
+
+
+            string co =service.HttpGet(simpLinearURL + reqStrTest);
             string[] coArr = co.Split('$');
             double[] result =new double[3];
             for (int i = 0; i < 3; i++)
@@ -74,6 +91,8 @@ namespace Analysis
             return result;
            
         }
+
+
         private void startButton_Click(object sender, EventArgs e)
         {
             //  

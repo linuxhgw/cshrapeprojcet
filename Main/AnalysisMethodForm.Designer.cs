@@ -30,16 +30,20 @@
             treeNode2});
             System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("关联");
             System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("分类");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("挖掘算法", new System.Windows.Forms.TreeNode[] {
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("聚合");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("决策树");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("挖掘算法", new System.Windows.Forms.TreeNode[] {
             treeNode4,
-            treeNode5});
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("时域分析");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("仿真时域分析", new System.Windows.Forms.TreeNode[] {
-            treeNode7});
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("分析方法", new System.Windows.Forms.TreeNode[] {
-            treeNode3,
+            treeNode5,
             treeNode6,
-            treeNode8});
+            treeNode7});
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("时域分析");
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("仿真时域分析", new System.Windows.Forms.TreeNode[] {
+            treeNode9});
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("分析方法", new System.Windows.Forms.TreeNode[] {
+            treeNode3,
+            treeNode8,
+            treeNode10});
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.SuspendLayout();
             // 
@@ -58,17 +62,20 @@
             treeNode4.Text = "关联";
             treeNode5.Name = "节点3";
             treeNode5.Text = "分类";
-            treeNode6.Name = "associatedAnalyzeTreeNode";
-            treeNode6.Text = "挖掘算法";
-            treeNode7.Name = "节点4";
-            treeNode7.Text = "时域分析";
-            treeNode8.Name = "timeAnalyzeTreeNode";
-            treeNode8.Text = "仿真时域分析";
-            treeNode9.Name = "analyzeMethods";
-            treeNode9.Text = "分析方法";
+            treeNode6.Name = "节点0";
+            treeNode6.Text = "聚合";
+            treeNode7.Name = "节点3";
+            treeNode7.Text = "决策树";
+            treeNode8.Name = "associatedAnalyzeTreeNode";
+            treeNode8.Text = "挖掘算法";
+            treeNode9.Name = "节点4";
+            treeNode9.Text = "时域分析";
+            treeNode10.Name = "timeAnalyzeTreeNode";
+            treeNode10.Text = "仿真时域分析";
+            treeNode11.Name = "analyzeMethods";
+            treeNode11.Text = "分析方法";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode9});
-            treeNode9.ExpandAll();
+            treeNode11});
             this.treeView1.Size = new System.Drawing.Size(190, 290);
             this.treeView1.TabIndex = 0;
             this.treeView1.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeView1_NodeMouseClick);
@@ -81,7 +88,7 @@
             this.Controls.Add(this.treeView1);
             this.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Name = "AnalysisMethodForm";
-            this.Text = "AnalysisMethodForm";
+            this.Text = "分析方法";
             this.ResumeLayout(false);
 
         }

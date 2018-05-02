@@ -62,7 +62,7 @@
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Name = "SchemeListForm";
-            this.Text = "SchemeListForm";
+            this.Text = "运行方案列表";
             this.Load += new System.EventHandler(this.SchemeListForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);

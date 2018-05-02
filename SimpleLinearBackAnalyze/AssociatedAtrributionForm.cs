@@ -13,11 +13,23 @@ namespace Analysis
     {
         public InteractiveAgent agent = InteractiveAgent.getInstance();
         SchemeModel model = SchemeModel.getInstance();
+        public DataFromService service = new DataFromService();
+        private ReqStr reqStr = ReqStr.getInstance();
+        public string LoadFormula ;
+        public string LoadFormulaList1;
+
+               
+        public string param = "?schemeID=";
+
         int anoAttributeId;
         public AssociatedAtrributionForm()
         {
             InitializeComponent();
+            reqStr.Url();
+            LoadFormula = reqStr.LoadFormula1;
+            LoadFormulaList1 = reqStr.LoadFormulaList1;
         }
+
 
         //*交互*/加载时，根据主界面请求，取出同一个成员下的全部属性，向AttributesListBox里添加属性列表………………………………………………………………………………………………
         private void AssociatedAtrributionForm_Load(object sender, EventArgs e)
@@ -28,17 +40,33 @@ namespace Analysis
                 this.attributesListBox.Items.Add(temlist[i]);
             }
         }
+        public List<string> getMemberFromService()
+        {
+            List<string> list = new List<string>();
+            List<int> Listid = model.GetLateIdStatus();
+            Console.WriteLine(LoadFormula + param + Listid[0]);
+            string result = service.HttpGet(LoadFormula + param + Listid[0]);
+            string[] arrSchemeValue = result.Split(';');
+            for (int i = 0; i + 1 < arrSchemeValue.Length; i = i + 1)
+            {
+                if (model.GetLateNameStatus()[1] == arrSchemeValue[i]) {
+                    continue;
+                }
+                list.Add(arrSchemeValue[i]);
+                Console.WriteLine(arrSchemeValue[i]);
+            }
 
+            return list;
+        }
 
         //从model里取某个成员的所有属性………………………………………………………………………………………………………………………………目前假的
         private List<String> getMemBerAttributes(List<string> list)
         {
             //对成员属性get，并逻辑处理
-            List<string> temlist = new List<string>();
-            temlist.Add("属性1");
-            temlist.Add("属性2");
-            temlist.Add("属性3");
-            return temlist;
+          
+            List<string> Memberlist = getMemberFromService();
+           
+            return Memberlist;
         }
 
         //添加关联属性事件---------------------------------
@@ -91,8 +119,9 @@ namespace Analysis
                     //记录属性id，数据库查找………………………………………………………………………………………………………………………………………………………………//
                 }
                 this.DialogResult = DialogResult.OK;
-                model.setAssociatedAttibuteName(anoAttribute);         //model存储关联的属性
-                model.setAssociatedAttibuteId("3");            //…………………………………………………………………………………………………………………………假的
+                string[] anoAttributeSplit = anoAttribute.Split('-');
+                model.setAssociatedAttibuteName(anoAttributeSplit[0]);         //model存储关联的属性
+                model.setAssociatedAttibuteId(anoAttributeSplit[1]);            //…………………………………………………………………………………………………………………………假的
             }
 
         }

@@ -16,10 +16,16 @@ namespace Analysis
         private BasicalStastisticsForm basicalStastiticWnd;
         private BasicalStastisticsZedForm basicalStastisticsZedWnd;
         public InteractiveAgent agent = InteractiveAgent.getInstance();
+    
+
         public BasicalDataAnalyzeMain()
         {
             InitializeComponent();
+                 
         }
+      
+      
+
 
         //加载子窗体
         private void BasicalDataAnalyzeMain_Load(object sender, EventArgs e)
@@ -38,6 +44,7 @@ namespace Analysis
             basicalStastiticWnd.Dock = DockStyle.Fill;
             basicalStastiticWnd.Parent = staWndPanel;
             basicalStastiticWnd.Show();
+            agent.basicalStastiticWnd = basicalStastiticWnd;
 
 
             caseInfoWnd = new CaseInfoForm();
@@ -49,6 +56,8 @@ namespace Analysis
 
             setBasicalDataAnalyzeMainSize();
         }
+
+
 
         //设置窗体在屏幕的位置和大小
         public void setBasicalDataAnalyzeMainSize()

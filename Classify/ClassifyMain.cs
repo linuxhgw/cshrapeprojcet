@@ -12,13 +12,21 @@ namespace Analysis.Classify
     public partial class ClassifyMain : Form
     {
           private CaseInfoForm caseInfoWnd;
-         public SchemeModel model = SchemeModel.getInstance();  
-          private string LinearBackURL = "http://stuzhou:5555/api-analysis/getLinearRegressionResult?";
-              //attrId=datacollect0-3-1-3&steplength=1-5000";
+         public SchemeModel model = SchemeModel.getInstance();
+        private ReqStr reqStr = ReqStr.getInstance();
+         private string LinearBackURL ;
+        //attrId=datacollect0-3-1-3&steplength=1-5000";
+        public string LoadFormula ;
+        public string param = "List1?schemeID=";
+
         public DataFromService service = new DataFromService();
         public ClassifyMain()
         {
             InitializeComponent();
+            reqStr.Url();
+            LinearBackURL = reqStr.LinearBackURL1;
+            LoadFormula = reqStr.LoadFormula1;
+
         }
         private void LinearBackAnalyzeMain_Load(object sender, EventArgs e)
         {
@@ -28,6 +36,22 @@ namespace Analysis.Classify
             caseInfoWnd.Parent = caseInfoWndPanel;
             caseInfoWnd.Show();
             setBasicalDataAnalyzeMainSize();
+        }
+
+
+        public List<string> getMemberFromService()
+        {
+            List<string> list = new List<string>();
+            List<int> Listid = model.GetLateIdStatus();
+            Console.WriteLine(LoadFormula+ param + Listid[0]);
+            string result = service.HttpGet(LoadFormula + param + Listid[0]);
+            string[] arrSchemeValue = result.Split(';');
+            for (int i = 0; i + 1 < arrSchemeValue.Length; i = i + 1)
+            {
+                list.Add(arrSchemeValue[i]);
+                Console.WriteLine(arrSchemeValue[i]);
+            }
+            return list;
         }
         //------------------------------------------
         public void setBasicalDataAnalyzeMainSize()
@@ -47,13 +71,25 @@ namespace Analysis.Classify
             string reqAttr=reqRecord[2];
             double temp;
             int i;
-            string reqStr = "attrId=datacollect0-3-1-3&steplength=1-5000";//请求服务字符串：方案名-运行次数-成员-属性
+            string reqStr = "attrId=datacollect1-1-1-3&steplength=1-5000";//请求服务字符串：方案名-运行次数-成员-属性
+            string reqStrTest = "attrId=datacollect";
+            reqStrTest = reqStrTest + model.GetLateIdStatus()[0] + "-";//方案
+            reqStrTest = reqStrTest + model.GetHistoryrun()[0] + "-";// 运行次数
+            reqStrTest = reqStrTest + model.GetLateIdStatus()[1] + "-";//成员1
+            reqStrTest = reqStrTest + model.GetLateIdStatus()[1]  ;//属性1
+      
+            reqStrTest = reqStrTest + "&steplength=1-5000";//步长
+            Console.WriteLine("reqstrTest_____" + reqStrTest);
+
+
             System.DateTime beforeTime = System.DateTime.Now;
-            string result = service.HttpGet(LinearBackURL + reqStr);
+            string result = service.HttpGet(LinearBackURL + reqStrTest);
             string[] results = result.Split('$');
             //获取成员下所有属性，
-           // List<string> restAttr=model.getMemberAttrbutes();
-            List<string> restAttr=new List<string>{"属性一","属性二"};
+            //List<string> restAttr=model.getMemberAttrbutes();
+           
+            List<string> restAttrTest = getMemberFromService();
+
            //………………………………………………………………………………………………………………………………………………………………………………………………………………
             if(results==null)
             {
@@ -68,7 +104,7 @@ namespace Analysis.Classify
                 temp=Double.Parse(results[i]);
                 if(temp!=0.0)
                 {
-                    list.Add("\t\t+("+restAttr[i]+")*"+results[i]+"\n");
+                    list.Add("\t\t+("+restAttrTest[i]+")*"+results[i]+"\n");
                 }
                 //
             }

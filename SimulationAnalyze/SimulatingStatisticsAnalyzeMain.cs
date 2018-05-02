@@ -37,6 +37,7 @@ namespace Analysis
             simulatingStatisticsForm.Dock = DockStyle.Fill;
             simulatingStatisticsForm.Parent = simuStatisticsPanel;
             simulatingStatisticsForm.Show();
+            agent.simulatingStatisticsForm = simulatingStatisticsForm;
 
             caseInfoWnd = new CaseInfoForm();
             caseInfoWnd.MdiParent = this;

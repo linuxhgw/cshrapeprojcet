@@ -13,11 +13,19 @@ namespace Analysis
     {
 
         private CaseInfoForm caseInfoWnd;
-        private string aprioriURL = "http://stuzhou:5555/api-analysis/getAprioriResult?tb=";
+        private ReqStr requeststring  =ReqStr.getInstance();
+
+        private string aprioriURL;
+        private string aprioriURLTest;
+
         public DataFromService service = new DataFromService();
+
+
         public DigAssociationAnalyzeMain()
         {
             InitializeComponent();
+            requeststring.Url();
+            aprioriURL = requeststring.AprioriURL;
         }
 
         private void DigAssociationAnalyzeMain_Load(object sender, EventArgs e)

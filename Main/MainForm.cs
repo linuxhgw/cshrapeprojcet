@@ -33,12 +33,13 @@ namespace Analysis {
             record = new OperationRecordForm();
             attribute = new Attribute();
             analysismethod = AnalysisMethodForm.CreateFrom();
-            schemelist.Show(dockPanel1, DockState.DockLeft);
             datagraph.Show(dockPanel1, DockState.Document);
+            schemelist.Show(datagraph.Pane, DockAlignment.Left, 0.16);
+           
 
             
             //schemelist.Show(datagraph.Pane, DockAlignment.Left, 0.23);
-            analysismethod.Show(datagraph.Pane, DockAlignment.Right, 0.3);
+            analysismethod.Show(datagraph.Pane, DockAlignment.Right, 0.23);
             runtime.Show(schemelist.Pane, DockAlignment.Bottom, 0.4);
             attribute.Show(analysismethod.Pane, DockAlignment.Bottom, 0.4);
             record.Show(datagraph.Pane, DockAlignment.Bottom, 0.3);
@@ -61,16 +62,6 @@ namespace Analysis {
 
         }
 
-        private void 分析窗口ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            analysismethod = AnalysisMethodForm.CreateFrom();   
-        }
-
-        private void 方案列表ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            schemelist = SchemeListForm.CreateFrom();
-            schemelist.Show();
-           
-        }
+       
     }
 }

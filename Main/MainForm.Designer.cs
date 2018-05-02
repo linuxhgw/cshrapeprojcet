@@ -71,7 +71,7 @@
             this.关于ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1008, 25);
+            this.menuStrip1.Size = new System.Drawing.Size(1208, 25);
             this.menuStrip1.TabIndex = 13;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -102,33 +102,31 @@
             // 方案列表ToolStripMenuItem
             // 
             this.方案列表ToolStripMenuItem.Name = "方案列表ToolStripMenuItem";
-            this.方案列表ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.方案列表ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.方案列表ToolStripMenuItem.Text = "方案列表";
-            this.方案列表ToolStripMenuItem.Click += new System.EventHandler(this.方案列表ToolStripMenuItem_Click);
             // 
             // 历史记录ToolStripMenuItem
             // 
             this.历史记录ToolStripMenuItem.Name = "历史记录ToolStripMenuItem";
-            this.历史记录ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.历史记录ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.历史记录ToolStripMenuItem.Text = "历史记录";
             // 
             // 输出ToolStripMenuItem
             // 
             this.输出ToolStripMenuItem.Name = "输出ToolStripMenuItem";
-            this.输出ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.输出ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.输出ToolStripMenuItem.Text = "输出";
             // 
             // 分析窗口ToolStripMenuItem
             // 
             this.分析窗口ToolStripMenuItem.Name = "分析窗口ToolStripMenuItem";
-            this.分析窗口ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.分析窗口ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.分析窗口ToolStripMenuItem.Text = "分析窗口";
-            this.分析窗口ToolStripMenuItem.Click += new System.EventHandler(this.分析窗口ToolStripMenuItem_Click);
             // 
             // 属性窗口ToolStripMenuItem
             // 
             this.属性窗口ToolStripMenuItem.Name = "属性窗口ToolStripMenuItem";
-            this.属性窗口ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.属性窗口ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.属性窗口ToolStripMenuItem.Text = "属性窗口";
             // 
             // toolStrip1
@@ -137,7 +135,7 @@
             this.toolStripButton1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 25);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1008, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(1208, 25);
             this.toolStrip1.TabIndex = 14;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -154,9 +152,9 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 669);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 679);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1008, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1208, 22);
             this.statusStrip1.TabIndex = 15;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -174,7 +172,7 @@
             this.dockPanel1.DocumentStyle = WeifenLuo.WinFormsUI.Docking.DocumentStyle.DockingWindow;
             this.dockPanel1.Location = new System.Drawing.Point(0, 50);
             this.dockPanel1.Name = "dockPanel1";
-            this.dockPanel1.Size = new System.Drawing.Size(1008, 619);
+            this.dockPanel1.Size = new System.Drawing.Size(1208, 629);
             dockPanelGradient1.EndColor = System.Drawing.SystemColors.ControlLight;
             dockPanelGradient1.StartColor = System.Drawing.SystemColors.ControlLight;
             autoHideStripSkin1.DockStripGradient = dockPanelGradient1;
@@ -225,14 +223,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1008, 691);
+            this.ClientSize = new System.Drawing.Size(1208, 701);
             this.Controls.Add(this.dockPanel1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.Name = "MainForm";
-            this.Text = "Form1";
+            this.Text = "仿真数据分析应用程序";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);

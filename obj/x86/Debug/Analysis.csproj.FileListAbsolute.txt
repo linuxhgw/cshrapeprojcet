@@ -47,3 +47,98 @@ C:\Users\Administrator.PC-20140805XJXQ\Desktop\Analysis\obj\x86\Debug\Analysis.D
 C:\Users\Administrator.PC-20140805XJXQ\Desktop\Analysis\obj\x86\Debug\Analysis.BasicalDataAnalyzeMain.resources
 C:\Users\Administrator.PC-20140805XJXQ\Desktop\Analysis\obj\x86\Debug\Analysis.AsscociationAnalyzeMain.resources
 C:\Users\Administrator.PC-20140805XJXQ\Desktop\Analysis\obj\x86\Debug\Analysis.Classify.ClassifyMain.resources
+C:\Users\Administrator.PC-20140805XJXQ\Desktop\Analysis\obj\x86\Debug\Analysis.BasicalStastisticsZedForm.resources
+C:\Users\Administrator.PC-20140805XJXQ\Desktop\Analysis\obj\x86\Debug\Analysis.ZedGraphBase.resources
+C:\Users\Administrator.PC-20140805XJXQ\Desktop\Analysis\obj\x86\Debug\Analysis.PartsForm.LoadDataForm.resources
+C:\Users\hgw\Desktop\Analysis\bin\Debug\Analysis.exe.config
+C:\Users\hgw\Desktop\Analysis\bin\Debug\Analysis.exe
+C:\Users\hgw\Desktop\Analysis\bin\Debug\Analysis.pdb
+C:\Users\hgw\Desktop\Analysis\obj\x86\Debug\Analysis.csprojResolveAssemblyReference.cache
+C:\Users\hgw\Desktop\Analysis\obj\x86\Debug\Analysis.BasicalStastisticsZedForm.resources
+C:\Users\hgw\Desktop\Analysis\obj\x86\Debug\Analysis.Classify.ClassifyMain.resources
+C:\Users\hgw\Desktop\Analysis\obj\x86\Debug\Analysis.PartsForm.LoadDataForm.resources
+C:\Users\hgw\Desktop\Analysis\obj\x86\Debug\Analysis.ZedGraphBase.resources
+C:\Users\hgw\Desktop\Analysis\obj\x86\Debug\Analysis.AsscociationAnalyzeMain.resources
+C:\Users\hgw\Desktop\Analysis\obj\x86\Debug\Analysis.BasicalDataAnalyzeMain.resources
+C:\Users\hgw\Desktop\Analysis\obj\x86\Debug\Analysis.AnalysisMethodForm.resources
+C:\Users\hgw\Desktop\Analysis\obj\x86\Debug\Analysis.Attribute.resources
+C:\Users\hgw\Desktop\Analysis\obj\x86\Debug\Analysis.DataZedGraphicForm.resources
+C:\Users\hgw\Desktop\Analysis\obj\x86\Debug\Analysis.DigAssociationAnalyzeMain.resources
+C:\Users\hgw\Desktop\Analysis\obj\x86\Debug\Analysis.MainForm.resources
+C:\Users\hgw\Desktop\Analysis\obj\x86\Debug\Analysis.OperationRecordForm.resources
+C:\Users\hgw\Desktop\Analysis\obj\x86\Debug\Analysis.Properties.Resources.resources
+C:\Users\hgw\Desktop\Analysis\obj\x86\Debug\Analysis.SchemeListForm.resources
+C:\Users\hgw\Desktop\Analysis\obj\x86\Debug\Analysis.SchemeRunTimesForm.resources
+C:\Users\hgw\Desktop\Analysis\obj\x86\Debug\Analysis.csproj.GenerateResource.Cache
+C:\Users\hgw\Desktop\Analysis\obj\x86\Debug\Analysis.csproj.CoreCompileInputs.cache
+C:\Users\hgw\Desktop\Analysis\obj\x86\Debug\Analysis.exe
+C:\Users\hgw\Desktop\Analysis\obj\x86\Debug\Analysis.pdb
+C:\Users\Administrator.PC-20140805XJXQ\Desktop\Analysis2\Analysis\bin\Debug\Analysis.exe.config
+C:\Users\Administrator.PC-20140805XJXQ\Desktop\Analysis2\Analysis\obj\x86\Debug\Analysis.exe
+C:\Users\Administrator.PC-20140805XJXQ\Desktop\Analysis2\Analysis\obj\x86\Debug\Analysis.pdb
+C:\Users\Administrator.PC-20140805XJXQ\Desktop\Analysis2\Analysis\bin\Debug\Analysis.exe
+C:\Users\Administrator.PC-20140805XJXQ\Desktop\Analysis2\Analysis\bin\Debug\Analysis.pdb
+C:\Users\Administrator.PC-20140805XJXQ\Desktop\Analysis2\Analysis\obj\x86\Debug\Analysis.csprojResolveAssemblyReference.cache
+C:\Users\Administrator.PC-20140805XJXQ\Desktop\Analysis2\Analysis\obj\x86\Debug\Analysis.BasicalStastisticsZedForm.resources
+C:\Users\Administrator.PC-20140805XJXQ\Desktop\Analysis2\Analysis\obj\x86\Debug\Analysis.Classify.ClassifyMain.resources
+C:\Users\Administrator.PC-20140805XJXQ\Desktop\Analysis2\Analysis\obj\x86\Debug\Analysis.PartsForm.LoadDataForm.resources
+C:\Users\Administrator.PC-20140805XJXQ\Desktop\Analysis2\Analysis\obj\x86\Debug\Analysis.ZedGraphBase.resources
+C:\Users\Administrator.PC-20140805XJXQ\Desktop\Analysis2\Analysis\obj\x86\Debug\Analysis.AsscociationAnalyzeMain.resources
+C:\Users\Administrator.PC-20140805XJXQ\Desktop\Analysis2\Analysis\obj\x86\Debug\Analysis.BasicalDataAnalyzeMain.resources
+C:\Users\Administrator.PC-20140805XJXQ\Desktop\Analysis2\Analysis\obj\x86\Debug\Analysis.AnalysisMethodForm.resources
+C:\Users\Administrator.PC-20140805XJXQ\Desktop\Analysis2\Analysis\obj\x86\Debug\Analysis.Attribute.resources
+C:\Users\Administrator.PC-20140805XJXQ\Desktop\Analysis2\Analysis\obj\x86\Debug\Analysis.DataZedGraphicForm.resources
+C:\Users\Administrator.PC-20140805XJXQ\Desktop\Analysis2\Analysis\obj\x86\Debug\Analysis.DigAssociationAnalyzeMain.resources
+C:\Users\Administrator.PC-20140805XJXQ\Desktop\Analysis2\Analysis\obj\x86\Debug\Analysis.MainForm.resources
+C:\Users\Administrator.PC-20140805XJXQ\Desktop\Analysis2\Analysis\obj\x86\Debug\Analysis.OperationRecordForm.resources
+C:\Users\Administrator.PC-20140805XJXQ\Desktop\Analysis2\Analysis\obj\x86\Debug\Analysis.Properties.Resources.resources
+C:\Users\Administrator.PC-20140805XJXQ\Desktop\Analysis2\Analysis\obj\x86\Debug\Analysis.SchemeListForm.resources
+C:\Users\Administrator.PC-20140805XJXQ\Desktop\Analysis2\Analysis\obj\x86\Debug\Analysis.SchemeRunTimesForm.resources
+C:\Users\Administrator.PC-20140805XJXQ\Desktop\Analysis2\Analysis\obj\x86\Debug\Analysis.csproj.GenerateResource.Cache
+C:\Users\hgw\Documents\Tencent Files\1240230994\FileRecv\Analysis(9)\Analysis\bin\Debug\Analysis.exe.config
+C:\Users\hgw\Documents\Tencent Files\1240230994\FileRecv\Analysis(9)\Analysis\obj\x86\Debug\Analysis.exe
+C:\Users\hgw\Documents\Tencent Files\1240230994\FileRecv\Analysis(9)\Analysis\obj\x86\Debug\Analysis.pdb
+C:\Users\hgw\Documents\Tencent Files\1240230994\FileRecv\Analysis(9)\Analysis\bin\Debug\Analysis.exe
+C:\Users\hgw\Documents\Tencent Files\1240230994\FileRecv\Analysis(9)\Analysis\bin\Debug\Analysis.pdb
+C:\Users\hgw\Documents\Tencent Files\1240230994\FileRecv\Analysis(9)\Analysis\obj\x86\Debug\Analysis.csprojResolveAssemblyReference.cache
+C:\Users\hgw\Documents\Tencent Files\1240230994\FileRecv\Analysis(9)\Analysis\obj\x86\Debug\Analysis.BasicalStastisticsZedForm.resources
+C:\Users\hgw\Documents\Tencent Files\1240230994\FileRecv\Analysis(9)\Analysis\obj\x86\Debug\Analysis.Classify.ClassifyMain.resources
+C:\Users\hgw\Documents\Tencent Files\1240230994\FileRecv\Analysis(9)\Analysis\obj\x86\Debug\Analysis.PartsForm.LoadDataForm.resources
+C:\Users\hgw\Documents\Tencent Files\1240230994\FileRecv\Analysis(9)\Analysis\obj\x86\Debug\Analysis.ZedGraphBase.resources
+C:\Users\hgw\Documents\Tencent Files\1240230994\FileRecv\Analysis(9)\Analysis\obj\x86\Debug\Analysis.AsscociationAnalyzeMain.resources
+C:\Users\hgw\Documents\Tencent Files\1240230994\FileRecv\Analysis(9)\Analysis\obj\x86\Debug\Analysis.BasicalDataAnalyzeMain.resources
+C:\Users\hgw\Documents\Tencent Files\1240230994\FileRecv\Analysis(9)\Analysis\obj\x86\Debug\Analysis.AnalysisMethodForm.resources
+C:\Users\hgw\Documents\Tencent Files\1240230994\FileRecv\Analysis(9)\Analysis\obj\x86\Debug\Analysis.Attribute.resources
+C:\Users\hgw\Documents\Tencent Files\1240230994\FileRecv\Analysis(9)\Analysis\obj\x86\Debug\Analysis.DataZedGraphicForm.resources
+C:\Users\hgw\Documents\Tencent Files\1240230994\FileRecv\Analysis(9)\Analysis\obj\x86\Debug\Analysis.DigAssociationAnalyzeMain.resources
+C:\Users\hgw\Documents\Tencent Files\1240230994\FileRecv\Analysis(9)\Analysis\obj\x86\Debug\Analysis.MainForm.resources
+C:\Users\hgw\Documents\Tencent Files\1240230994\FileRecv\Analysis(9)\Analysis\obj\x86\Debug\Analysis.OperationRecordForm.resources
+C:\Users\hgw\Documents\Tencent Files\1240230994\FileRecv\Analysis(9)\Analysis\obj\x86\Debug\Analysis.Properties.Resources.resources
+C:\Users\hgw\Documents\Tencent Files\1240230994\FileRecv\Analysis(9)\Analysis\obj\x86\Debug\Analysis.SchemeListForm.resources
+C:\Users\hgw\Documents\Tencent Files\1240230994\FileRecv\Analysis(9)\Analysis\obj\x86\Debug\Analysis.SchemeRunTimesForm.resources
+C:\Users\hgw\Documents\Tencent Files\1240230994\FileRecv\Analysis(9)\Analysis\obj\x86\Debug\Analysis.csproj.GenerateResource.Cache
+C:\Users\hgw\Documents\Tencent Files\1240230994\FileRecv\Analysis(9)\Analysis\obj\x86\Debug\Analysis.csproj.CoreCompileInputs.cache
+F:\学习文件\FileRecv\Analysis(9)\Analysis\bin\Debug\Analysis.exe.config
+F:\学习文件\FileRecv\Analysis(9)\Analysis\bin\Debug\Analysis.exe
+F:\学习文件\FileRecv\Analysis(9)\Analysis\bin\Debug\Analysis.pdb
+F:\学习文件\FileRecv\Analysis(9)\Analysis\obj\x86\Debug\Analysis.csprojResolveAssemblyReference.cache
+F:\学习文件\FileRecv\Analysis(9)\Analysis\obj\x86\Debug\Analysis.BasicalStastisticsZedForm.resources
+F:\学习文件\FileRecv\Analysis(9)\Analysis\obj\x86\Debug\Analysis.Classify.ClassifyMain.resources
+F:\学习文件\FileRecv\Analysis(9)\Analysis\obj\x86\Debug\Analysis.PartsForm.LoadDataForm.resources
+F:\学习文件\FileRecv\Analysis(9)\Analysis\obj\x86\Debug\Analysis.ZedGraphBase.resources
+F:\学习文件\FileRecv\Analysis(9)\Analysis\obj\x86\Debug\Analysis.AsscociationAnalyzeMain.resources
+F:\学习文件\FileRecv\Analysis(9)\Analysis\obj\x86\Debug\Analysis.BasicalDataAnalyzeMain.resources
+F:\学习文件\FileRecv\Analysis(9)\Analysis\obj\x86\Debug\Analysis.AnalysisMethodForm.resources
+F:\学习文件\FileRecv\Analysis(9)\Analysis\obj\x86\Debug\Analysis.Attribute.resources
+F:\学习文件\FileRecv\Analysis(9)\Analysis\obj\x86\Debug\Analysis.DataZedGraphicForm.resources
+F:\学习文件\FileRecv\Analysis(9)\Analysis\obj\x86\Debug\Analysis.DigAssociationAnalyzeMain.resources
+F:\学习文件\FileRecv\Analysis(9)\Analysis\obj\x86\Debug\Analysis.MainForm.resources
+F:\学习文件\FileRecv\Analysis(9)\Analysis\obj\x86\Debug\Analysis.OperationRecordForm.resources
+F:\学习文件\FileRecv\Analysis(9)\Analysis\obj\x86\Debug\Analysis.Properties.Resources.resources
+F:\学习文件\FileRecv\Analysis(9)\Analysis\obj\x86\Debug\Analysis.SchemeListForm.resources
+F:\学习文件\FileRecv\Analysis(9)\Analysis\obj\x86\Debug\Analysis.SchemeRunTimesForm.resources
+F:\学习文件\FileRecv\Analysis(9)\Analysis\obj\x86\Debug\Analysis.csproj.GenerateResource.cache
+F:\学习文件\FileRecv\Analysis(9)\Analysis\obj\x86\Debug\Analysis.csproj.CoreCompileInputs.cache
+F:\学习文件\FileRecv\Analysis(9)\Analysis\obj\x86\Debug\Analysis.csproj.CopyComplete
+F:\学习文件\FileRecv\Analysis(9)\Analysis\obj\x86\Debug\Analysis.exe
+F:\学习文件\FileRecv\Analysis(9)\Analysis\obj\x86\Debug\Analysis.pdb

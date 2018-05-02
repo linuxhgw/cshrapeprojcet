@@ -10,26 +10,41 @@ using System.Net;
 using ZedGraph;
 using System.Windows.Forms;
 using System.Collections;
+using Analysis.PartsForm;
+using Analysis.FormUtils;
 
 namespace Analysis
 {
     public partial class BasicalStastisticsZedForm : ZedGraphBase
     {
         public InteractiveAgent agent = InteractiveAgent.getInstance();
-        public SchemeModel model = SchemeModel.getInstance();
-        public DataFromService service = new DataFromService();
-        public string staURL = "http://stuzhou:5555/api-analysis/getBasicStatisticsAnalysis?reqStr=";
-        private string stepValueURL = "http://stuzhou:5555/api-analysis/getAtrributeRunData?reqStr=";//datacollect0-1-3-30-50
+        private ReqStr reqStr = ReqStr.getInstance();
+
+        public string staURLTest;
+        public string stepValueURLTest;
+        public string staURL;
+        string stepValueURL;
         private List<Statsitic> staCurrentList;      //实时要显示的统计数据列表
-        private string startStep, endStep;
-
-
+        private static int id=0;
+        private PointPairList list = null, dynamicList = new PointPairList(), tempDynamicList=null;
+        private CurveList myCurveList = new CurveList();
         public BasicalStastisticsZedForm()
+
         {
+
             InitializeComponent();
+
+            reqStr.Url();
+            staURL = reqStr.StaURL;
+          
+            stepValueURL = reqStr.StepValueURL;
+          
+
+            stepFromTextBox.Text = model.getStartStep();
+            stepToTextBox.Text = model.getEndStep();
+
             InitializationAttributes();
             createZedPane2();
-
         }
 
             //初始化成员属性
@@ -37,84 +52,159 @@ namespace Analysis
         {
             this.stepFromTextBox.Text = model.getStartStep();
             this.stepToTextBox.Text = model.getEndStep();
-            this.title = "动态折线图";
-            this.yText = "数量";
-            this.xText = "数量";
+            this.title = "基本分析图";
+            this.yText = model.GetLateNameStatus()[1];
+            this.xText = "步长";
             staCurrentList = new List<Statsitic>();
             startStep = model.getStartStep();
             endStep = model.getEndStep();
         }
 
-        //调用服务返回点集，………………………………………………
-        public PointPairList getStepValueFromService(string reqStr)
+        protected override void dynamicTimer_Tick(object sender, EventArgs e)
         {
-            PointPairList list = new PointPairList();
-            string result = service.HttpGet(stepValueURL + reqStr);
-            string[] arrStepValue = result.Split('-');
-            for (int i = 0; i + 1 < arrStepValue.Length; i = i + 2)
+            if (id < list.Count)
             {
-                list.Add(Double.Parse(arrStepValue[i]), Double.Parse(arrStepValue[i + 1]));
+                if (this.myCurve != null)
+                {
+                    this.myPane.CurveList.Remove(myCurve);
+                }
+                if (dynamicList.Count == list.Count) 
+                {
+                    dynamicList.Clear();
+                }
+                dynamicList.Add(next(list));
+                myCurve = myPane.AddCurve("MyCurve", dynamicList, Color.DarkGreen, SymbolType.Triangle);
+                this.zedGraphControl.AxisChange();
+                this.zedGraphControl.Refresh();
             }
+            else
+            {
+                id = 0;
+               
+                this.dynamicTimer.Enabled = false;
+                MessageBox.Show("载入数据结束！", "温馨提示", MessageBoxButtons.OK);
+            }
+        }
+
+        private PointPair next(PointPairList list)
+        {
+            if (id == 0)
+            {
+                id++;
+                return list[0];
+              
+            }
+            return list[id++];
+        }
+        //动态载入
+        public PointPairList createDynamicZedPane()
+        {
+            if (myPane == null)
+            {
+                return null;
+            }
+            if (myPane.CurveList.Capacity != 0)
+            {
+                ZedUtils.removeAllCurves(myPane.CurveList);
+                ZedUtils.removeAllCurves(myCurveList);
+                this.zedGraphControl.AxisChange();
+                this.zedGraphControl.Refresh();
+               // MessageBox.Show("null");
+            }
+            PointPairList list;
+            list = getPoint();
+			
+            addAllStaCurves(null);
             return list;
         }
-   
-        //?*服务*/、加载窗体时调用此方法获取四个统计值并返回，**顺序一定：最大、最小、平均值、方差………………………………………………
-        public List<Statsitic> getStatsticsFromService(string reqStr)
+        //调用服务静态载入数据
+        //调用服务静态载入数据
+        public void createStaticZedPane()
         {
-            int j = 0;
-            List<Statsitic> list = new List<Statsitic>();
-            Statsitic sta;
-            String results = service.HttpGet(staURL + reqStr);
-            string[] arrSta = results.Split('-');
-            while (j + 1 < arrSta.Length)
+            PointPairList list;
+            list = getPoint();
+            if (myPane == null)
             {
-                sta = new Statsitic(arrSta[j], Math.Round(System.Convert.ToDouble(arrSta[j + 1]), 3));
-                list.Add(sta);
-                j = j + 2;
+                return;
             }
+             
+            if(myPane.CurveList.Capacity != 0) {
+                ZedUtils.removeAllCurves(myPane.CurveList);
+                ZedUtils.removeAllCurves(myCurveList);
+            }
+            myCurve = myPane.AddCurve("MyCurve", list, Color.DarkGreen, SymbolType.None);
+            addAllStaCurves(null);
+
+            this.zedGraphControl.AxisChange();
+            this.zedGraphControl.Refresh();
+        }
+
+        private PointPairList getPoint()
+        {
+            PointPairList list;
+            string IdList = "";
+            for (int i = 0; i < model.GetLateIdStatus().Count; i++)
+            {
+                IdList = IdList + model.GetLateIdStatus()[i] + "-";
+
+            }
+            IdList += model.getStartStep() + "-";
+            IdList += model.getEndStep();
+
+            Console.WriteLine(IdList);
+            list = ZedUtils.getStepValueFromService(stepValueURL,IdList );
             return list;
         }
 
+        //载入Zed基本信息
         public override void createZedPane2()
         {
-          //  MessageBox.Show("初始化面板");
-            LineItem myCurve;
-            PointPairList list;
+            this.myPane = null;
             String reqStr = "-" + startStep + "-" + endStep;
             this.myPane = this.zedGraphControl.GraphPane;
             myPane.Title.Text = title;
             myPane.YAxis.Title.Text = yText;
             myPane.XAxis.Title.Text = xText;
             setZedAction();
-            list = getStepValueFromService("datacollect0-1-3-30-50");
             XMax = Double.Parse(endStep);
             XMin = Double.Parse(startStep);
-          
-   //         MessageBox.Show(startStep + "," + endStep + "," + XMin.ToString() + "," + XMax.ToString());
-            myCurve = myPane.AddCurve("MyCurve", list, Color.DarkGreen, SymbolType.None);
-            addAllStaCurves(null);
+            this.staCurrentList = null;
+            model.setStaCurrentList(null);
             this.zedGraphControl.AxisChange();
             this.zedGraphControl.Refresh();
         }
-
+      
+ 
         //接收中介类通知:去model里取统计数据-----------------------
         public void informedToGetCurStaList()
         {
             staCurrentList = model.getStaCurrentList();
-            showRequeredStaCurves();//显示要求的统计数据
+            ZedUtils.showRequeredStaCurves(staCurrentList,myCurveList);//显示要求的统计数据
+            zedGraphControl.AxisChange();//一定要
+            Refresh();
         }
-
         //绘图区域绘制所有统计图像…………………………………………………………………………………………………………………………
         private void addAllStaCurves(string reqStr)
         {
             double y;
             PointPairList list1;
-            List<Statsitic> allStaList = getStatsticsFromService("datacollect0-1-3-30-50");//reqStr
-            model.setAllStatistic(allStaList);
+            string IdList = "";
+            for (int i = 0; i < model.GetLateIdStatus().Count; i++)
+            {
+                IdList = IdList + model.GetLateIdStatus()[i] + "-";
+
+            }
+            IdList += model.getStartStep() + "-";
+            IdList += model.getEndStep();
+            List<Statsitic> allStaList =  ZedUtils.getStatsticsFromService(staURL,IdList);//reqStr
+
             if (allStaList == null)
             {
                 return;
             }
+            model.setAllStatistic(allStaList);
+
+            agent.informBasicalStastisticFromRefreshNewData();
 
             for (int j = 0; j < allStaList.Count; j++)
             {
@@ -124,52 +214,62 @@ namespace Analysis
                     y = allStaList[j].Val;
                     list1.Add(x, y);
                 }
-                LineItem myCurve = myPane.AddCurve(allStaList[j].Type, list1, Color.Blue, SymbolType.None);
-                myPane.Legend.IsVisible = false;
+                LineItem myCurve = myPane.AddCurve(allStaList[j].Type, list1, GetRandomColor(), SymbolType.None);
+				               this.myCurveList.Add(myCurve); 
+							  	myPane.Legend.IsVisible = false;
                 myCurve.Line.IsSmooth = true;
                 myCurve.IsVisible = false;
             }
         }
 
-        //绘图区域显示的统计数据的曲线----------------------------------------
-        private void showRequeredStaCurves()
-        {
-
-            if (staCurrentList == null)
-            {
-                return;
-            }
-
-            for (int i = 1; i < myPane.CurveList.Count; i++)
-            {
-                this.myPane.CurveList[i].IsVisible = false;
-
-            }
-            for (int i = 0; i < staCurrentList.Count; i++)
-            {
-                int index = this.myPane.CurveList.IndexOf(staCurrentList[i].Type);
-                if (index > 0)
-                {
-                    this.myPane.CurveList[index].IsVisible = true;
-                }
-            }
-            zedGraphControl.AxisChange();//一定要
-            Refresh();
-        }
+       
 
         //显示默认事件-------------------------------------
-        private void defaultButton_Click(object sender, EventArgs e)
+        protected override void defaultButton_Click(object sender, EventArgs e)
         {
-            createZedPane2();
+           // MessageBox.Show(myCurveList.Count.ToString());
+           for (int i = 0; i < myCurveList.Count; i++)
+            {
+                myCurveList[i].IsVisible = false;
+            }
             agent.informStaWndAllNonCheck();
+
         }
 
         //重置步长以后，刷新显示
-        private void redrawButton_Click(object sender, EventArgs e)
+        protected override void redrawButton_Click(object sender, EventArgs e)
         {
-            createZedPane2();
-            agent.BasicalRefresh();
+            model.setStartStep(stepFromTextBox.Text);
+            model.setEndStep(stepToTextBox.Text);
+
+            createStaticZedPane();
             agent.informStaWndAllNonCheck();
         }
+
+        //载入数据响应
+        protected override void loadDataButton_Click(object sender, EventArgs e)
+        {
+            LoadDataForm loadDataForm = new LoadDataForm();
+            loadDataForm.ShowDialog();
+            if (loadDataForm.DialogResult == DialogResult.OK)
+            {
+                if (model.getDynamicLoad() == false)
+                {
+
+                    createStaticZedPane();
+                }
+                else
+                {
+                    if (list != null && list.Count > 0)
+                    {
+                        list.Clear();
+                    }
+                    list=createDynamicZedPane();
+                    this.dynamicTimer.Enabled=true;
+                }
+            }
+
+        }
+      
     }
 }

@@ -28,17 +28,20 @@
         /// </summary>
         public void BaseInitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.SetGraphBasicPanel = new System.Windows.Forms.Panel();
             this.intervelLabel = new System.Windows.Forms.Label();
-            this.stepToTextBox = new System.Windows.Forms.TextBox();
-            this.toLabel = new System.Windows.Forms.Label();
             this.stepFromTextBox = new System.Windows.Forms.TextBox();
+            this.toLabel = new System.Windows.Forms.Label();
+            this.stepToTextBox = new System.Windows.Forms.TextBox();
             this.isGridCheckBox = new System.Windows.Forms.CheckBox();
             this.ZedBottomPanel = new System.Windows.Forms.Panel();
             this.zedGraphControl = new ZedGraph.ZedGraphControl();
             this.GraphAtrributesPanel = new System.Windows.Forms.Panel();
             this.lineColorLabel = new System.Windows.Forms.Label();
             this.colorComboBox = new System.Windows.Forms.ComboBox();
+            this.dynamicTimer = new System.Windows.Forms.Timer(this.components);
+            this.loadDataButton = new System.Windows.Forms.Button();
             this.SetGraphBasicPanel.SuspendLayout();
             this.ZedBottomPanel.SuspendLayout();
             this.GraphAtrributesPanel.SuspendLayout();
@@ -49,10 +52,12 @@
             this.SetGraphBasicPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.SetGraphBasicPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.SetGraphBasicPanel.Controls.Add(this.loadDataButton);
             this.SetGraphBasicPanel.Controls.Add(this.intervelLabel);
-            this.SetGraphBasicPanel.Controls.Add(this.stepToTextBox);
-            this.SetGraphBasicPanel.Controls.Add(this.toLabel);
             this.SetGraphBasicPanel.Controls.Add(this.stepFromTextBox);
+            this.SetGraphBasicPanel.Controls.Add(this.toLabel);
+            this.SetGraphBasicPanel.Controls.Add(this.stepToTextBox);
+          
             this.SetGraphBasicPanel.Location = new System.Drawing.Point(0, 28);
             this.SetGraphBasicPanel.Name = "SetGraphBasicPanel";
             this.SetGraphBasicPanel.Size = new System.Drawing.Size(817, 37);
@@ -70,17 +75,16 @@
             // 
             // stepFromTextBox
             // 
-            this.stepFromTextBox.Location = new System.Drawing.Point(73, 7);
-            this.stepFromTextBox.Name = "stepToTextBox";
-            this.stepFromTextBox.Size = new System.Drawing.Size(100, 21);
+            this.stepFromTextBox.Location = new System.Drawing.Point(61, 7);
+            this.stepFromTextBox.Name = "stepFromTextBox";
+            this.stepFromTextBox.Size = new System.Drawing.Size(79, 21);
             this.stepFromTextBox.TabIndex = 2;
-            this.stepFromTextBox.Text = "1";
             // 
             // toLabel
             // 
             this.toLabel.AutoSize = true;
             this.toLabel.Font = new System.Drawing.Font("宋体", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.toLabel.Location = new System.Drawing.Point(172, 13);
+            this.toLabel.Location = new System.Drawing.Point(140, 11);
             this.toLabel.Name = "toLabel";
             this.toLabel.Size = new System.Drawing.Size(44, 48);
             this.toLabel.TabIndex = 1;
@@ -88,16 +92,11 @@
             // 
             // stepToTextBox
             // 
-            this.stepToTextBox.Location = new System.Drawing.Point(216, 8);
-            this.stepToTextBox.Name = "stepFromTextBox";
-            this.stepToTextBox.Size = new System.Drawing.Size(100, 21);
-            this.stepToTextBox.Text = "100";
-            //
-            // defaultButton
-            // 
-
-            this.stepFromTextBox.TabIndex = 0;
-
+            this.stepToTextBox.Location = new System.Drawing.Point(189, 8);
+            this.stepToTextBox.Name = "stepToTextBox";
+            this.stepToTextBox.Size = new System.Drawing.Size(79, 21);
+            this.stepToTextBox.TabIndex = 0;
+        
             // 
             // isGridCheckBox
             // 
@@ -152,7 +151,6 @@
             this.GraphAtrributesPanel.Controls.Add(this.lineColorLabel);
             this.GraphAtrributesPanel.Controls.Add(this.isGridCheckBox);
             this.GraphAtrributesPanel.Controls.Add(this.colorComboBox);
-
             this.GraphAtrributesPanel.Location = new System.Drawing.Point(0, 0);
             this.GraphAtrributesPanel.Name = "GraphAtrributesPanel";
             this.GraphAtrributesPanel.Size = new System.Drawing.Size(817, 30);
@@ -186,7 +184,53 @@
             this.colorComboBox.TabIndex = 0;
             this.colorComboBox.SelectedIndexChanged += new System.EventHandler(this.colorComboBox_SelectedIndexChanged);
             // 
-            // ZedGraphBase
+            // dynamicTimer
+            // 
+            this.dynamicTimer.Interval = 100;
+            this.dynamicTimer.Tick += new System.EventHandler(this.dynamicTimer_Tick);
+            // 
+            // loadDataButton
+            // 
+            this.loadDataButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.loadDataButton.Location = new System.Drawing.Point(289, 7);
+            this.loadDataButton.Name = "loadDataButton";
+            this.loadDataButton.Size = new System.Drawing.Size(75, 23);
+            this.loadDataButton.TabIndex = 5;
+            this.loadDataButton.Text = "载入数据";
+            this.loadDataButton.UseVisualStyleBackColor = true;
+            this.loadDataButton.Click += new System.EventHandler(this.loadDataButton_Click);
+   //
+            // defaultButton
+            // 
+            this.defaultButton = new System.Windows.Forms.Button();
+
+            this.defaultButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.defaultButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.defaultButton.Location = new System.Drawing.Point(669, 3);
+            this.defaultButton.Name = "defaultButton";
+            this.defaultButton.Size = new System.Drawing.Size(96, 23);
+            this.defaultButton.TabIndex = 9;
+            this.defaultButton.Text = "还原默认显示";
+            this.defaultButton.UseVisualStyleBackColor = true;
+            this.defaultButton.Click += new System.EventHandler(this.defaultButton_Click);
+            this.GraphAtrributesPanel.Controls.Add(this.defaultButton);
+            // 
+            // redrawButton
+            // 
+            this.redrawButton = new System.Windows.Forms.Button();
+            this.redrawButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.redrawButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.redrawButton.Location = new System.Drawing.Point(769, 5);
+            this.redrawButton.Name = "redrawButton";
+            this.redrawButton.Size = new System.Drawing.Size(45, 23);
+            this.redrawButton.TabIndex = 3;
+            this.redrawButton.Text = "刷新";
+            this.redrawButton.UseVisualStyleBackColor = true;
+            this.redrawButton.Click += new System.EventHandler(this.redrawButton_Click);
+
+            this.SetGraphBasicPanel.Controls.Add(this.redrawButton);
+            // 
+            // DataZegGraphicForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -199,7 +243,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "ZedGraphBase";
+            this.Name = "DataZegGraphicForm";
             this.Text = "ResultForm";
             this.SetGraphBasicPanel.ResumeLayout(false);
             this.SetGraphBasicPanel.PerformLayout();
@@ -213,16 +257,20 @@
         #endregion
 
         protected System.Windows.Forms.Panel SetGraphBasicPanel;
-        public System.Windows.Forms.TextBox stepToTextBox;
+
+        protected System.Windows.Forms.TextBox stepFromTextBox;
         private System.Windows.Forms.Label toLabel;
-        public System.Windows.Forms.TextBox stepFromTextBox;
+        protected System.Windows.Forms.TextBox stepToTextBox;
         private System.Windows.Forms.Label intervelLabel;
         private System.Windows.Forms.Panel ZedBottomPanel;
         public ZedGraph.ZedGraphControl zedGraphControl;
-        protected System.Windows.Forms.Panel GraphAtrributesPanel;
+        public System.Windows.Forms.Panel GraphAtrributesPanel;
         private System.Windows.Forms.CheckBox isGridCheckBox;
         private System.Windows.Forms.ComboBox colorComboBox;
         private System.Windows.Forms.Label lineColorLabel;
-
+        protected System.Windows.Forms.Timer dynamicTimer;
+        protected System.Windows.Forms.Button loadDataButton;
+ public System.Windows.Forms.Button redrawButton;
+        public System.Windows.Forms.Button defaultButton;
     }
 }

@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.Collections;
 using ZedGraph;
 
+
 namespace Analysis
 {
     public partial class ZedGraphBase : Form
@@ -19,7 +20,10 @@ namespace Analysis
         protected string yText = "";//图像y轴
         protected string title = "";//图像标题
         protected double XMax = 0, XMin = 0;
-
+     
+        protected string startStep, endStep;
+  		 protected CurveItem myCurve;
+        protected SchemeModel model = SchemeModel.getInstance();
         public ZedGraphBase()
         {
         }
@@ -70,6 +74,7 @@ namespace Analysis
             }
             else
             {
+              //  MessageBox.Show("false");
                 myPane.YAxis.MajorGrid.IsVisible = false;
                 myPane.XAxis.MajorGrid.IsVisible = false;
                 this.zedGraphControl.AxisChange();
@@ -150,7 +155,48 @@ namespace Analysis
             SetLineColor(this.color);
 
         }
+      /*  private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.dynamicCheckBox.Checked == true)
+            {
+                this.dynamicTimer.Enabled = true;
+            }
+            else
+            {
+                this.dynamicTimer.Enabled = false;
+            }
+        }
+       * */
+        protected virtual void dynamicTimer_Tick(object sender, EventArgs e)
+        {
 
+        }
+        //载入数据响应
+        protected virtual void loadDataButton_Click(object sender, EventArgs e)
+        {
+        }
+        //随机颜色
+        public Color GetRandomColor()
+        {
+            Random RandomNum_First = new Random((int)DateTime.Now.Ticks);
+            //  对于C#的随机数，没什么好说的
+            System.Threading.Thread.Sleep(RandomNum_First.Next(50));
+            Random RandomNum_Sencond = new Random((int)DateTime.Now.Ticks);
 
+            //  为了在白色背景上显示，尽量生成深色
+            int int_Red = RandomNum_First.Next(256);
+            int int_Green = RandomNum_Sencond.Next(256);
+            int int_Blue = (int_Red + int_Green > 400) ? 0 : 400 - int_Red - int_Green;
+            int_Blue = (int_Blue > 255) ? 255 : int_Blue;
+
+            return Color.FromArgb(int_Red, int_Green, int_Blue);
+        }
+        //删除
+       
+
+        protected virtual void defaultButton_Click(object sender, EventArgs e) { }
+
+        protected virtual void redrawButton_Click(object sender, EventArgs e) { }
     }
 }
+
