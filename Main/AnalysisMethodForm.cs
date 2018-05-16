@@ -10,6 +10,7 @@ using Analysis.Classify;
 namespace Analysis {
     public partial class AnalysisMethodForm : WeifenLuo.WinFormsUI.Docking.DockContent {
         SchemeModel model = SchemeModel.getInstance();
+        InteractiveAgent agent = InteractiveAgent.getInstance();
         const int WS_EX_NOACTIVATE = 0x08000000; 
         private AnalysisMethodForm()
         {
@@ -53,6 +54,7 @@ namespace Analysis {
                     if (associatedAtrributionForm.DialogResult==(DialogResult.OK))
                     {
                         AsscociationAnalyzeMain asscociationAnalyzeMain = new AsscociationAnalyzeMain();
+                       agent.asscociationAnalyzeMain = asscociationAnalyzeMain;
                         asscociationAnalyzeMain.Show(this);
                     //    asscociationAnalyzeMain.MdiParent = this;
                     }
@@ -80,5 +82,6 @@ namespace Analysis {
             }
 
         }
+
     }
 }

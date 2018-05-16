@@ -70,5 +70,10 @@ namespace Analysis
                 ch.Width = _Width / _Count;
             }
         }
+
+        private void caseInfoListView_MouseHover(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Arrow;//设置鼠标样式
+        }
     }
 }

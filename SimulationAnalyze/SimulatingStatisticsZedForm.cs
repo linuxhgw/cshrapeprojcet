@@ -64,7 +64,8 @@ namespace Analysis
                 dynamicList.Add(next(list));
                 myCurve = myPane.AddCurve("MyCurve", dynamicList, Color.DarkGreen, SymbolType.None);
                 this.zedGraphControl.AxisChange();
-                this.zedGraphControl.Refresh();
+                this.zedGraphControl.Invalidate();
+                //this.zedGraphControl.Refresh();
             }
             else
             {
@@ -88,16 +89,18 @@ namespace Analysis
         //动态载入
         public PointPairList createDynamicZedPane()
         {
+            myCurveList.Clear();
             if (myPane == null)
             {
                 return null;
             }
             if (myPane.CurveList.Capacity != 0)
             {
-                ZedUtils.removeAllCurves(myPane.CurveList);
-                ZedUtils.removeAllCurves(myCurveList);
+                this.zedGraphControl.GraphPane.CurveList.Clear();
+                this.zedGraphControl.GraphPane.GraphObjList.Clear();
                 this.zedGraphControl.AxisChange();
-                this.zedGraphControl.Refresh();
+                this.zedGraphControl.Invalidate();
+               // this.zedGraphControl.Refresh();
                // MessageBox.Show("null");
             }
 
@@ -116,6 +119,7 @@ namespace Analysis
         //调用服务静态载入数据
         public void createStaticZedPane()
         {
+            myCurveList.Clear();
             PointPairList list2;
             string reqStrTest = getSiumReqStr();
             list2 = ZedUtils.getStepValueFromService(stepValueURL, reqStrTest);
@@ -125,14 +129,15 @@ namespace Analysis
             }
             if (myPane.CurveList.Capacity != 0)
             {
-                ZedUtils.removeAllCurves(myPane.CurveList);
-                ZedUtils.removeAllCurves(myCurveList);
+                this.zedGraphControl.GraphPane.CurveList.Clear();
+                this.zedGraphControl.GraphPane.GraphObjList.Clear();
             }
-            myCurve = myPane.AddCurve("MyCurve", list2, Color.DarkGreen, SymbolType.None);
+            myCurve = myPane.AddCurve("MyCurve", list2, Color.DarkGreen, SymbolType.Default);
             addAllSimuStaCurves(null);
 
             this.zedGraphControl.AxisChange();
-            this.zedGraphControl.Refresh();
+            this.zedGraphControl.Invalidate();
+            // this.zedGraphControl.;
         }
 
         private string getSiumReqStr()
@@ -151,6 +156,7 @@ namespace Analysis
         public override void createZedPane2()
         {
             this.myPane = null;
+            myCurveList.Clear();
             String reqStr = "-" + startStep + "-" + endStep;
             this.myPane = this.zedGraphControl.GraphPane;
             myPane.Title.Text = title;
@@ -160,7 +166,8 @@ namespace Analysis
             XMax = Double.Parse(endStep);
             XMin = Double.Parse(startStep);
             this.zedGraphControl.AxisChange();
-            this.zedGraphControl.Refresh();
+            this.zedGraphControl.Invalidate();
+           // this.zedGraphControl.Refresh();
         }
 
         //接收中介类通知:去model里取统计数据-----------------------
@@ -169,7 +176,9 @@ namespace Analysis
             simuCurrentList = model.getSimuCurrentList();
             ZedUtils.showRequeredStaCurves(simuCurrentList, myCurveList);//显示要求的统计数据
             zedGraphControl.AxisChange();//一定要
-            Refresh();
+
+            this.zedGraphControl.Invalidate();
+           // zedGraphControl.Refresh();
         }
 
         //绘图区域绘制所有统计图像…………………………………………………………………………………………………………………………
@@ -190,7 +199,7 @@ namespace Analysis
             for (int j = 0; j < allStaList.Count; j++)
             {
                 list1 = new PointPairList();
-                for (double x = XMin; x < XMax; x = x + 1)
+                for (double x =Double.Parse( model.getStartStep()); x < Double.Parse(model.getEndStep()); x = x + 1)
                 {
                     y = allStaList[j].Val;
                     list1.Add(x, y);
@@ -235,6 +244,7 @@ namespace Analysis
                 }
                 else
                 {
+                    this.dynamicTimer.Enabled = false;
                     list = createDynamicZedPane();
                     this.dynamicTimer.Enabled = true;
                 }

@@ -48,6 +48,7 @@
             this.caseInfoListView.TabIndex = 0;
             this.caseInfoListView.UseCompatibleStateImageBehavior = false;
             this.caseInfoListView.View = System.Windows.Forms.View.Details;
+            this.caseInfoListView.MouseHover += new System.EventHandler(this.caseInfoListView_MouseHover);
             this.caseInfoListView.Resize += new System.EventHandler(this.listView1_Resize);
             // 
             // caseInfo

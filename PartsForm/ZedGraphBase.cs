@@ -15,17 +15,19 @@ namespace Analysis
     public partial class ZedGraphBase : Form
     {
         protected GraphPane myPane;              //ZedGraph面板
-        protected Color color;                    //线条颜色
+        protected Color color = Color.DarkGreen;                    //线条颜色
         protected string xText = "";//图像x轴标识
         protected string yText = "";//图像y轴
         protected string title = "";//图像标题
         protected double XMax = 0, XMin = 0;
-     
+
         protected string startStep, endStep;
-  		 protected CurveItem myCurve;
+        protected CurveItem myCurve;
         protected SchemeModel model = SchemeModel.getInstance();
         public ZedGraphBase()
         {
+
+
         }
 
 
@@ -74,7 +76,7 @@ namespace Analysis
             }
             else
             {
-              //  MessageBox.Show("false");
+                //  MessageBox.Show("false");
                 myPane.YAxis.MajorGrid.IsVisible = false;
                 myPane.XAxis.MajorGrid.IsVisible = false;
                 this.zedGraphControl.AxisChange();
@@ -91,15 +93,11 @@ namespace Analysis
         //设置线的颜色--------
         public void SetLineColor(Color c)
         {
-            CurveList curves = myPane.CurveList;
-            if (curves.Count <= 0)
+
+            color = c;
+            if (myPane != null)
             {
-                return;
-            }
-            for (int i = 0; i < curves.Count; i++)
-            {
-                LineItem curve = curves[i] as LineItem;
-                curve.Color = c;
+                myPane.CurveList[0].Color = color;
             }
             this.zedGraphControl.AxisChange();
             Refresh();
@@ -155,18 +153,18 @@ namespace Analysis
             SetLineColor(this.color);
 
         }
-      /*  private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            if (this.dynamicCheckBox.Checked == true)
-            {
-                this.dynamicTimer.Enabled = true;
-            }
-            else
-            {
-                this.dynamicTimer.Enabled = false;
-            }
-        }
-       * */
+        /*  private void checkBox1_CheckedChanged(object sender, EventArgs e)
+          {
+              if (this.dynamicCheckBox.Checked == true)
+              {
+                  this.dynamicTimer.Enabled = true;
+              }
+              else
+              {
+                  this.dynamicTimer.Enabled = false;
+              }
+          }
+         * */
         protected virtual void dynamicTimer_Tick(object sender, EventArgs e)
         {
 
@@ -192,7 +190,66 @@ namespace Analysis
             return Color.FromArgb(int_Red, int_Green, int_Blue);
         }
         //删除
-       
+
+        private void stepFromTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (stepFromTextBox.Text != null)
+            {
+                try
+                {
+                    int.Parse(stepFromTextBox.Text);
+                    model.setStartStep(stepFromTextBox.Text);
+                }
+                catch (Exception)
+                {
+
+                    MessageBox.Show("请输入数字", "温馨提示", MessageBoxButtons.OK);
+                }
+            }
+
+        }
+        private void stepToTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (stepToTextBox.Text != null)
+            {
+                try
+                {
+                    int.Parse(stepToTextBox.Text);
+                    model.setEndStep(stepToTextBox.Text);
+                }
+                catch (Exception)
+                {
+
+                    MessageBox.Show("请输入数字", "温馨提示", MessageBoxButtons.OK);
+                }
+            }
+
+        }
+
+
+        private void stepFromTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                redrawButton_Click(this, new EventArgs());
+            }
+        }
+        private void stepToTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (int.Parse(stepToTextBox.Text) < int.Parse(stepFromTextBox.Text))
+                {
+                    MessageBox.Show("请输入有效区间", "温馨提示", MessageBoxButtons.OK);
+                }
+                else
+                {
+                    redrawButton_Click(this, new EventArgs());
+                }
+
+
+            }
+        }
 
         protected virtual void defaultButton_Click(object sender, EventArgs e) { }
 

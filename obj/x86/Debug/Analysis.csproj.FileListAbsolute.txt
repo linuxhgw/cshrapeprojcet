@@ -142,3 +142,6 @@ F:\学习文件\FileRecv\Analysis(9)\Analysis\obj\x86\Debug\Analysis.csproj.Core
 F:\学习文件\FileRecv\Analysis(9)\Analysis\obj\x86\Debug\Analysis.csproj.CopyComplete
 F:\学习文件\FileRecv\Analysis(9)\Analysis\obj\x86\Debug\Analysis.exe
 F:\学习文件\FileRecv\Analysis(9)\Analysis\obj\x86\Debug\Analysis.pdb
+F:\学习文件\FileRecv\Analysis(9)\Analysis\obj\x86\Debug\Analysis.AssociatedZedForm.resources
+F:\学习文件\FileRecv\Analysis(9)\Analysis\obj\x86\Debug\Analysis.BasicalStastisticsForm.resources
+F:\学习文件\FileRecv\Analysis(9)\Analysis\obj\x86\Debug\Analysis.CaseInfoForm.resources

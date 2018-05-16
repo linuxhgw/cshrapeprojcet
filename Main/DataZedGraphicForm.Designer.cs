@@ -48,7 +48,7 @@
             this.zedGraphControl1.IsShowHScrollBar = true;
             this.zedGraphControl1.IsShowPointValues = true;
             this.zedGraphControl1.IsShowVScrollBar = true;
-            this.zedGraphControl1.Location = new System.Drawing.Point(0, 33);
+            this.zedGraphControl1.Location = new System.Drawing.Point(0, 35);
             this.zedGraphControl1.Name = "zedGraphControl1";
             this.zedGraphControl1.ScrollGrace = 0D;
             this.zedGraphControl1.ScrollMaxX = 0D;
@@ -101,6 +101,8 @@
             this.endStepTextBox.Size = new System.Drawing.Size(100, 21);
             this.endStepTextBox.TabIndex = 2;
             this.endStepTextBox.Text = "50";
+            this.endStepTextBox.TextChanged += new System.EventHandler(this.endStepTextBox_TextChanged);
+            this.endStepTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.endStepTextBox_KeyDown);
             // 
             // label1
             // 
@@ -119,6 +121,8 @@
             this.startStepTextBox.Size = new System.Drawing.Size(100, 21);
             this.startStepTextBox.TabIndex = 0;
             this.startStepTextBox.Text = "1";
+            this.startStepTextBox.TextChanged += new System.EventHandler(this.startStepTextBox_TextChanged);
+            this.startStepTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.startStepTextBox_KeyDown);
             // 
             // DataZedGraphicForm
             // 

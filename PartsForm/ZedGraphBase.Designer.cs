@@ -1,4 +1,7 @@
-﻿namespace Analysis
+﻿using System;
+using System.Windows.Forms;
+
+namespace Analysis
 {
     partial class ZedGraphBase
     {
@@ -79,6 +82,10 @@
             this.stepFromTextBox.Name = "stepFromTextBox";
             this.stepFromTextBox.Size = new System.Drawing.Size(79, 21);
             this.stepFromTextBox.TabIndex = 2;
+            this.stepFromTextBox.Text = model.getStartStep();
+            this.stepFromTextBox.TextChanged += new System.EventHandler(this.stepFromTextBox_TextChanged);
+           
+            this.stepFromTextBox.KeyDown += new  System.Windows.Forms.KeyEventHandler(this.stepFromTextBox_KeyDown);
             // 
             // toLabel
             // 
@@ -96,7 +103,10 @@
             this.stepToTextBox.Name = "stepToTextBox";
             this.stepToTextBox.Size = new System.Drawing.Size(79, 21);
             this.stepToTextBox.TabIndex = 0;
-        
+            this.stepToTextBox.Text = model.getEndStep();
+            this.stepToTextBox.TextChanged += new System.EventHandler(this.stepToTextBox_TextChanged);
+            this.stepToTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.stepToTextBox_KeyDown);
+
             // 
             // isGridCheckBox
             // 
@@ -253,6 +263,9 @@
             this.ResumeLayout(false);
 
         }
+
+     
+
 
         #endregion
 

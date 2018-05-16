@@ -76,7 +76,9 @@ namespace Analysis
             reqStrTest = reqStrTest + model.GetLateIdStatus()[1] + "-";//成员1
             reqStrTest = reqStrTest + model.GetLateIdStatus()[1] + "-";//属性1
             reqStrTest = reqStrTest + model.getAssociatedAttibuteId() ;//属性2
-            reqStrTest = reqStrTest + "&steplength=1-5000";//步长
+            reqStrTest = reqStrTest + "&steplength=";
+            reqStrTest = reqStrTest + model.getStartStep()+"-";
+            reqStrTest = reqStrTest + model.getEndStep() ;
             Console.WriteLine("reqstrTest_" + reqStrTest);
 
 
@@ -92,9 +94,15 @@ namespace Analysis
            
         }
 
+        public void textboxClear()
+        {
+            this.XYInfoTextBox.Text = "";
+            this.fomulationTextBox.Text = "";
+        }
 
         private void startButton_Click(object sender, EventArgs e)
         {
+            associatedZedForm.createZedPane2();
             //  
             string anoAttributeId = model.getAssociatedAttibuteId();
             string anoAttributeName = model.getAssociatedAttibuteName();
@@ -106,11 +114,13 @@ namespace Analysis
                 this.fomulationTextBox.Text = "Y=" + results[0] + "* X +" + results[2];
                 List<string> str = model.GetLateNameStatus();
 
-                this.XYInfoTextBox.Text = "Y:" + anoAttributeName + "  X:" +str[2]; //不确定获取第一个属性*****************************
+                this.XYInfoTextBox.Text = "Y:" + anoAttributeName+"-"+ anoAttributeId + "  X:" +str[2]; //不确定获取第一个属性*****************************
             }
             model.setlinearResults(results);
             agent.informZedGetCoff();
         }
+
+        
 
     }
 }

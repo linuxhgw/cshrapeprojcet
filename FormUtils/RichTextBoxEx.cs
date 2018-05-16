@@ -21,7 +21,7 @@ namespace Analysis
 
         public RichTextBoxEx()
         {
-            this.Cursor = Cursors.Arrow;//设置鼠标样式  
+           this.Cursor = Cursors.Arrow;//设置鼠标样式  
         }
 
         protected override void WndProc(ref Message m)

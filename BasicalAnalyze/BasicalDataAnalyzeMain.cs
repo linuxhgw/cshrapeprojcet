@@ -72,5 +72,10 @@ namespace Analysis
             int yHeight = SystemInformation.PrimaryMonitorSize.Height;
             this.Location = new Point((xWidth - this.Width) / 2, (yHeight - this.Height) / 2);
         }
+
+        private void zedWndPanel_MouseHover(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Arrow;//设置鼠标样式
+        }
     }
 }

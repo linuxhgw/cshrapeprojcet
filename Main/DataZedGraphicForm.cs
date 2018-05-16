@@ -8,8 +8,10 @@ using System.Text;
 using System.Windows.Forms;
 using ZedGraph;
 
-namespace Analysis {
-    public partial class DataZedGraphicForm : WeifenLuo.WinFormsUI.Docking.DockContent {
+namespace Analysis
+{
+    public partial class DataZedGraphicForm : WeifenLuo.WinFormsUI.Docking.DockContent
+    {
 
         public SchemeModel model = SchemeModel.getInstance();
         public DataFromService service = new DataFromService();
@@ -17,7 +19,7 @@ namespace Analysis {
 
         string stepValueURL;
 
-       
+
         private string reqStrTest;
         //方案名-仿真次数-属性名-起始步长-终止步长
 
@@ -36,24 +38,25 @@ namespace Analysis {
         private PointPairList getPoint(int runtime)
         {
             PointPairList list;
-                string reqStrTest = "";
-        reqStrTest = reqStrTest + model.GetLateIdStatus()[0] + "-";//方案
+            string reqStrTest = "";
+            reqStrTest = reqStrTest + model.GetLateIdStatus()[0] + "-";//方案
             reqStrTest = reqStrTest + model.GetHistoryrun()[runtime] + "-";// 运行次数
             reqStrTest = reqStrTest + model.GetLateIdStatus()[1] + "-";//成员1
             reqStrTest = reqStrTest + model.GetLateIdStatus()[1] + "-";//属性1
-          
-            reqStrTest = reqStrTest +model.getStartStep()+"-";//步长
-            reqStrTest = reqStrTest + model.getEndStep() ;
+
+            reqStrTest = reqStrTest + model.getStartStep() + "-";//步长
+            reqStrTest = reqStrTest + model.getEndStep();
             Console.WriteLine(reqStrTest);
             list = getStepValueFromService(reqStrTest);
             return list;
         }
         //分别存储,方案名.方案成员,方案属性,方案的第几次
-        public List<string> schememessage;
-        public List<int> runtimessage;
-       
+        public List<string> schememessage= new List<string>();
+        public List<int> runtimessage = new List<int>();
 
-        public DataZedGraphicForm() {
+
+        public DataZedGraphicForm()
+        {
             InitializeComponent();
             reqStr.Url();
             stepValueURL = reqStr.StepValueURL;
@@ -63,53 +66,59 @@ namespace Analysis {
 
         }
 
-     
+
 
 
         //传递过来的信息
-        public void SchemeMessage() {
+        public void SchemeMessage()
+        {
             schememessage = model.GetLateNameStatus();
 
 
         }
-        public void runtimesage() {
+        public void runtimesage()
+        {
             runtimessage = model.GetHistoryrun();
-            if (schememessage.Count == 3 && runtimessage.Count != 0)
-            {
 
-                InitDraw();
-            }
-            else {
-                this.zedGraphControl1.GraphPane.CurveList.Clear();
-                this.zedGraphControl1.GraphPane.GraphObjList.Clear();
-                zedGraphControl1.AxisChange();
-                zedGraphControl1.Refresh();//刷新
+            InitDraw();
 
-            }
+
 
         }
 
 
         //根据传来的信息进行方案的选择
-    
 
-#region
+
+        #region
         public void InitDraw()
         {
+            if (schememessage.Count == 3 && runtimessage.Count != 0)
+            {
 
-            CreateGraph_static(this.zedGraphControl1);
-            this.zedGraphControl1.GraphPane.CurveList.Clear();
-            this.zedGraphControl1.GraphPane.GraphObjList.Clear();
-            for (int i = 0; i < runtimessage.Count; i++) {
-                PointPairList list= getPoint(i);
-                TestResultForm2(list);
+                CreateGraph_static(this.zedGraphControl1);
+                this.zedGraphControl1.GraphPane.CurveList.Clear();
+                this.zedGraphControl1.GraphPane.GraphObjList.Clear();
+                for (int i = 0; i < runtimessage.Count; i++)
+                {
+                    PointPairList list = getPoint(i);
+                    TestResultForm2(list);
+                }
+
+                zedGraphControl1.AxisChange();
+                zedGraphControl1.Refresh();//刷新
             }
-           
-            zedGraphControl1.AxisChange();
-            zedGraphControl1.Refresh();//刷新
+            else
+            {
+                this.zedGraphControl1.GraphPane.CurveList.Clear();
+                this.zedGraphControl1.GraphPane.GraphObjList.Clear();
+                zedGraphControl1.AxisChange();
+                zedGraphControl1.Refresh();//刷新
+            }
         }
         //信息的初始化
-        public void CreateGraph_static(ZedGraphControl zedgraphcontrol) {
+        public void CreateGraph_static(ZedGraphControl zedgraphcontrol)
+        {
 
             //#region 现实特征设置
 
@@ -131,7 +140,7 @@ namespace Analysis {
             myPane.XAxis.Scale.FontSpec.Angle = 75; //横坐标字体角度
             zedgraphcontrol.GraphPane.Title.FontSpec.Size = 20;
             zedgraphcontrol.AutoScroll = true;
-           // zedgraphcontrol.GraphPane.XAxis.Type = ZedGraph.AxisType.DateAsOrdinal; //X轴属性类型
+            // zedgraphcontrol.GraphPane.XAxis.Type = ZedGraph.AxisType.DateAsOrdinal; //X轴属性类型
             zedgraphcontrol.PanModifierKeys = Keys.Shift;//移动坐标图
 
 
@@ -146,7 +155,8 @@ namespace Analysis {
             //#endregion
 
         }
-        public List<int> ExchangeColor() {
+        public List<int> ExchangeColor()
+        {
 
             List<int> listRGB = new List<int>();
 
@@ -166,11 +176,12 @@ namespace Analysis {
 
 
         }
-#endregion
+        #endregion
 
 
 
-        public void TestResultForm(PointPairList list1) {
+        public void TestResultForm(PointPairList list1)
+        {
 
 
             GraphPane my = this.zedGraphControl1.GraphPane;
@@ -186,12 +197,13 @@ namespace Analysis {
 
 
             myCurve = my.AddCurve("对比数据", list1, Color.FromArgb(R, G, B), SymbolType.Circle);
-         
+
             myCurve.Symbol.Fill = new Fill(Color.FromArgb(R, G, B));
 
 
         }
-        public void TestResultForm2(PointPairList list1) {
+        public void TestResultForm2(PointPairList list1)
+        {
             GraphPane myPane = this.zedGraphControl1.GraphPane;
             ZedGraphControl zedgraphcontrol = this.zedGraphControl1;
             LineItem myCurve;//第一条折线
@@ -209,11 +221,55 @@ namespace Analysis {
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+
             model.setStartStep(this.startStepTextBox.Text);
             model.setEndStep(this.endStepTextBox.Text);
             InitDraw();
 
+        }
+
+        private void endStepTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                button1_Click(this, new EventArgs());
+            }
+        }
+
+        private void startStepTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                button1_Click(this, new EventArgs());
+            }
+        }
+
+        private void endStepTextBox_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                int.Parse(endStepTextBox.Text);
+                model.setEndStep(endStepTextBox.Text);
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("请输入数字", "温馨提示", MessageBoxButtons.OK);
+            }
+        }
+
+        private void startStepTextBox_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                int.Parse(startStepTextBox.Text);
+                model.setStartStep(startStepTextBox.Text);
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("请输入数字", "温馨提示", MessageBoxButtons.OK);
+            }
         }
     }
 

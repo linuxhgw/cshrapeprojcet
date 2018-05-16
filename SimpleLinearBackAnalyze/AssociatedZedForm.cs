@@ -15,7 +15,7 @@ namespace Analysis
     public partial class AssociatedZedForm : ZedGraphBase
     {
         public InteractiveAgent agent = InteractiveAgent.getInstance();
-
+    
         public DataFromService service = new DataFromService();
         private ReqStr reqStr = ReqStr.getInstance();
         private string stepValueURL;
@@ -30,6 +30,8 @@ namespace Analysis
         public AssociatedZedForm()
         {
             InitializeComponent();
+           
+
             reqStr.Url();
             stepValueURL = reqStr.StepValueURL;
             this.stepFromTextBox.Text = model.getStartStep();
@@ -79,7 +81,10 @@ namespace Analysis
 
         public override void createZedPane2()
         {
-         
+             this.zedGraphControl.GraphPane.CurveList.Clear();
+            this.zedGraphControl.GraphPane.GraphObjList.Clear();
+            item = null;
+            agent.informAssociateMainClearTextbox();
             PointPairList destXY = setXYPoints();
             setAtrributes();
             this.myPane = this.zedGraphControl.GraphPane;
@@ -87,8 +92,9 @@ namespace Analysis
             myPane.YAxis.Title.Text = model.GetLateNameStatus()[1];
             myPane.XAxis.Title.Text =model.getAssociatedAttibuteName();
             setZedAction();
-            myCurve = myPane.AddCurve("MyCurve", destXY, Color.DarkGreen, SymbolType.Diamond);
+            myCurve = myPane.AddCurve("MyCurve", destXY, color, SymbolType.Diamond);
             // myCurve.Line.IsSmooth = true;
+
             this.zedGraphControl.AxisChange();            
             this.zedGraphControl.Refresh();
         }
@@ -102,7 +108,7 @@ namespace Analysis
             }
 
             if (item != null) return;
-                PointPairList list = new PointPairList();
+            PointPairList list = new PointPairList();
             double x, y;
             for (double i = Double.Parse(model.getStartStep()); i < Double.Parse(model.getEndStep()); i = i + 0.5)
             {
@@ -125,7 +131,7 @@ namespace Analysis
           model.setStartStep(this.stepFromTextBox.Text);
             model.setEndStep(this.stepToTextBox.Text);
 
-            ZedUtils.removeAllCurves(myPane.CurveList);
+           
             createZedPane2();
         }
 
@@ -135,5 +141,7 @@ namespace Analysis
            
             createZedPane2();
         }
+
+        
     }
 }

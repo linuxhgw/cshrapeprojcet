@@ -15,6 +15,7 @@ namespace Analysis {
         public SimulatingStatisticsZedForm simulatingStatisticsZedForm;
         public SimulatingStatisticsForm simulatingStatisticsForm;
         public AssociatedZedForm associatedZedForm;
+        public AsscociationAnalyzeMain asscociationAnalyzeMain;
 
         //创建 SingleObject 的一个对象
         private static InteractiveAgent instance = new InteractiveAgent();
@@ -97,6 +98,10 @@ namespace Analysis {
         public void informZedGetCoff()
         {
             associatedZedForm.getcoefficient();
+        }
+        public void informAssociateMainClearTextbox()
+        {
+            asscociationAnalyzeMain.textboxClear();
         }
 
 

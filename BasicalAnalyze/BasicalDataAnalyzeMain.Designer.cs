@@ -61,6 +61,7 @@
             this.zedWndPanel.Name = "zedWndPanel";
             this.zedWndPanel.Size = new System.Drawing.Size(684, 318);
             this.zedWndPanel.TabIndex = 0;
+            this.zedWndPanel.MouseHover += new System.EventHandler(this.zedWndPanel_MouseHover);
             // 
             // staWndPanel
             // 

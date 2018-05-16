@@ -111,6 +111,11 @@ namespace Analysis
             items=model.getAllStastitic();
             setListView(items);
         }
+
+        private void staWndListview_MouseHover(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Arrow;//设置鼠标样式
+        }
     }
 
 

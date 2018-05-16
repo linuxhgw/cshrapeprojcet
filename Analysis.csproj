@@ -193,11 +193,17 @@
     <Compile Include="PartsForm\ZedGraphBase.Designer.cs">
       <DependentUpon>ZedGraphBase.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="BasicalAnalyze\BasicalStastisticsForm.resx">
+      <DependentUpon>BasicalStastisticsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BasicalAnalyze\BasicalStastisticsZedForm.resx">
       <DependentUpon>BasicalStastisticsZedForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Classify\ClassifyMain.resx">
       <DependentUpon>ClassifyMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PartsForm\CaseInfoForm.resx">
+      <DependentUpon>CaseInfoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PartsForm\LoadDataForm.resx">
       <DependentUpon>LoadDataForm.cs</DependentUpon>
@@ -244,6 +250,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Main\SchemeRunTimesForm.resx">
       <DependentUpon>SchemeRunTimesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SimpleLinearBackAnalyze\AssociatedZedForm.resx">
+      <DependentUpon>AssociatedZedForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="ClassDiagram1.cd" />

@@ -106,7 +106,15 @@ namespace Analysis {
             }
             for (int i = 0; i < split_list.Count; i++)
             {
-                id.Add(Int32.Parse(split_list[i][1]));
+                try
+                {
+                    id.Add(Int32.Parse(split_list[i][1]));
+                }
+                catch (IndexOutOfRangeException e)
+                {
+                    Console.WriteLine("id数组超过界限" +e);
+                    return null;
+                }
             }
 
 

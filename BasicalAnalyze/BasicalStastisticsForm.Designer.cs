@@ -51,6 +51,7 @@
             this.staWndListview.UseCompatibleStateImageBehavior = false;
             this.staWndListview.View = System.Windows.Forms.View.Details;
             this.staWndListview.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.listView1_ItemChecked);
+            this.staWndListview.MouseHover += new System.EventHandler(this.staWndListview_MouseHover);
             this.staWndListview.Resize += new System.EventHandler(this.listView1_Resize);
             // 
             // staNames

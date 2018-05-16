@@ -61,14 +61,18 @@ namespace Analysis {
         {
             List<string> list = new List<string>();
             List<int> Listid = model.GetLateIdStatus();
-            Console.WriteLine(LoadFormula + param + Listid[0]);
-            string result = service.HttpGet(LoadFormula + param + Listid[0]);
-            string[] arrSchemeValue = result.Split(';');
-            for (int i = 0; i + 1 < arrSchemeValue.Length; i = i + 1)
-            {
-                list.Add(arrSchemeValue[i]);
-                Console.WriteLine(arrSchemeValue[i]);
-            }
+
+            
+          
+                Console.WriteLine(LoadFormula + param + Listid[0]);
+                string result = service.HttpGet(LoadFormula + param + Listid[0]);
+                string[] arrSchemeValue = result.Split(';');
+                for (int i = 0; i + 1 < arrSchemeValue.Length; i = i + 1)
+                {
+                    list.Add(arrSchemeValue[i]);
+                    Console.WriteLine(arrSchemeValue[i]);
+                }
+          
             return list;
         }
 
@@ -83,7 +87,7 @@ namespace Analysis {
                 agent.SchemeToAtrr();
                 agent.SchemeToRecord();
                 model.GetLateIdStatus();
-                if (e.Node.Level == 1 && e.Node.LastNode == null)
+                if (e.Node.Level == 1 && e.Node.LastNode == null&&e.Node !=null)
                 {
                     List<string> Memberlist = getMemberFromService();
                     for (int i = 0; i < Memberlist.Count; i++)
@@ -107,13 +111,16 @@ namespace Analysis {
 
         private void SchemeListForm_Load(object sender, EventArgs e)
         {
+            List<string> list = new List<string>();
+            list = getSchemeFromService();
+           node1 = treeView1.Nodes.Add("全部方案信息");
 
-            node1 = treeView1.Nodes.Add("全部方案信息");
-            for (int i = 0; i < getSchemeFromService().Count; i++)
-            {
-                node1.Nodes.Add(new TreeNode(getSchemeFromService()[i]));
-            }
-
+                for (int i = 0; i < list.Count; i++)
+                {
+                    node1.Nodes.Add(new TreeNode(list[i]));
+                }
+            
+          
 
 
 

@@ -49,7 +49,7 @@ namespace Analysis {
             checkedListBox1.CheckOnClick = true; 
         }
 
-        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e) {
+        private  void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e) {
             message.Clear();
             for (int i = 0; i < checkedListBox1.Items.Count; i++) {
                 if (checkedListBox1.GetItemChecked(i)) {

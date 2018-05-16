@@ -17,7 +17,7 @@ namespace Analysis.Classify
          private string LinearBackURL ;
         //attrId=datacollect0-3-1-3&steplength=1-5000";
         public string LoadFormula ;
-        public string param = "List1?schemeID=";
+        public string param = "?schemeID=";
 
         public DataFromService service = new DataFromService();
         public ClassifyMain()
@@ -66,7 +66,11 @@ namespace Analysis.Classify
 
         //开始调用服务进行线性回归分析…………………………………………………………………………………………………………………………
         private void startButton_Click(object sender, EventArgs e)
+
         {
+
+            this.resultRichTextBox.Text = "线性回归分析结果展示……";
+
             List<string> reqRecord=model.GetLateNameStatus();
             string reqAttr=reqRecord[2];
             double temp;
