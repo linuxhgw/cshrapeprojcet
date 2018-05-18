@@ -60,6 +60,12 @@
       <DependentUpon>ClassifyMain.cs</DependentUpon>
     </Compile>
     <Compile Include="FormUtils\ZedUtils.cs" />
+    <Compile Include="frmWaitingBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmWaitingBox.designer.cs">
+      <DependentUpon>frmWaitingBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main\AnalysisMethodForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -266,7 +272,9 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\218ede1481a165d2bc4c971e949b0202.gif" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

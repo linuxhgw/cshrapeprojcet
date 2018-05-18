@@ -6,12 +6,16 @@ using System.Net;
 using System.IO;
 using System.Windows.Forms;
 
+
 namespace Analysis
 {
 
-    
+
     public class DataFromService
     {
+
+        frmWaitingBox frmWaitingBox;
+        string retString = "";
         //http获取服务端数据
         public string HttpGet(string url)
         {
@@ -23,13 +27,21 @@ namespace Analysis
             try
             {
 
-                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-                Stream myResponseStream = response.GetResponseStream();
-                StreamReader myStreamReader = new StreamReader(myResponseStream, Encoding.GetEncoding("utf-8"));
-                string retString = myStreamReader.ReadToEnd();
-                Console.WriteLine(retString);
-                myStreamReader.Close();
-                myResponseStream.Close();
+                frmWaitingBox f = new frmWaitingBox((obj, args) =>
+                {
+                    HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                    Stream myResponseStream = response.GetResponseStream();
+                    StreamReader myStreamReader = new StreamReader(myResponseStream, Encoding.GetEncoding("utf-8"));
+
+                    retString = myStreamReader.ReadToEnd();
+                    Console.WriteLine(retString);
+                    myStreamReader.Close();
+                    myResponseStream.Close();
+
+
+
+                }, 20, "Please Wait...", false, false);
+                f.ShowDialog();
                 return retString;
 
 
@@ -37,11 +49,11 @@ namespace Analysis
             catch (Exception)
             {
                 MessageBox.Show("没有连上服务器", "温馨提示", MessageBoxButtons.OK);
-                return "" ;
+                return "";
             }
-          
-         
-            
+
+
+
         }
 
         public DataFromService()
