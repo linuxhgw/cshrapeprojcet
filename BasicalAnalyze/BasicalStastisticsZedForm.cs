@@ -138,11 +138,10 @@ namespace Analysis
         {
             PointPairList list;
             string IdList = "";
-            for (int i = 0; i < model.GetLateIdStatus().Count; i++)
-            {
-                IdList = IdList + model.GetLateIdStatus()[i] + "-";
+            IdList += model.GetLateIdStatus()[0] + "-";
+            IdList += model.GetHistoryrun()[0] + "-";
+            IdList += model.GetLateIdStatus()[1] + "-";
 
-            }
             IdList += model.getStartStep() + "-";
             IdList += model.getEndStep();
 
@@ -185,11 +184,11 @@ namespace Analysis
 
 
             string IdList = "";
-            for (int i = 0; i < model.GetLateIdStatus().Count; i++)
-            {
-                IdList = IdList + model.GetLateIdStatus()[i] + "-";
+            IdList += model.GetLateIdStatus()[0] + "-";
+            IdList += model.GetHistoryrun()[0] + "-";
+            IdList += model.GetLateIdStatus()[1] + "-";
 
-            }
+            IdList += model.getStartStep() + "-";
             IdList += model.getStartStep() + "-";
             IdList += model.getEndStep();
             List<Statsitic> allStaList = ZedUtils.getStatsticsFromService(staURL, IdList);//reqStr

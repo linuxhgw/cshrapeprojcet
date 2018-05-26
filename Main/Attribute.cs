@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Analysis.Main;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,6 +15,7 @@ namespace Analysis {
         public List<string> message = new List<string>();
         public Attribute() {
             InitializeComponent();
+           
         }
 
 
@@ -22,9 +24,17 @@ namespace Analysis {
             message.Add("");
             message.Add("");
             message.Add("");
-            textBox1.Text = message[0];
-            textBox2.Text = message[1];
-            textBox3.Text = message[2];
+            Selectmessage customer = new Selectmessage();
+            customer.Scheme = message[0];
+            customer.Member = message[1];
+            customer.Attribute = message[2];
+            
+            propertyGrid1.SelectedObject = customer;
+        }
+
+        private void propertyGrid1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

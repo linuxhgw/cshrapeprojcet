@@ -72,6 +72,7 @@
     <Compile Include="Main\AnalysisMethodForm.Designer.cs">
       <DependentUpon>AnalysisMethodForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Main\Selectmessage.cs" />
     <Compile Include="PartsForm\LoadDataForm.cs">
       <SubType>Form</SubType>
     </Compile>

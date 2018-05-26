@@ -73,7 +73,9 @@ namespace Analysis
         public void SchemeMessage()
         {
             schememessage = model.GetLateNameStatus();
-
+            if (runtimessage.Count != 0) {
+                runtimesage();
+            }
 
         }
         public void runtimesage()

@@ -45,6 +45,8 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.zedGraphControl1.IsAutoScrollRange = true;
+            this.zedGraphControl1.IsEnableHZoom = false;
+            this.zedGraphControl1.IsEnableVZoom = false;
             this.zedGraphControl1.IsShowHScrollBar = true;
             this.zedGraphControl1.IsShowPointValues = true;
             this.zedGraphControl1.IsShowVScrollBar = true;

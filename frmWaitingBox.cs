@@ -167,7 +167,7 @@ namespace Analysis
                     _Timer.Stop();
                     _IsShown = false;
                 }
-                this.Opacity += 1.00 / _EffectCount;
+               // this.Opacity += 1.00 / _EffectCount;
             }
             else
             {
@@ -177,7 +177,7 @@ namespace Analysis
                     _IsShown = true;
                     this.Close();
                 }
-                this.Opacity -= 1.00 / _EffectCount;
+                //this.Opacity -= 1.00 / _EffectCount;
             }
         }
         #endregion
