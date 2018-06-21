@@ -209,6 +209,9 @@
     <EmbeddedResource Include="Classify\ClassifyMain.resx">
       <DependentUpon>ClassifyMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmWaitingBox.resx">
+      <DependentUpon>frmWaitingBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PartsForm\CaseInfoForm.resx">
       <DependentUpon>CaseInfoForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -260,6 +263,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SimpleLinearBackAnalyze\AssociatedZedForm.resx">
       <DependentUpon>AssociatedZedForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SimulationAnalyze\SimulatingStatisticsAnalyzeMain.resx">
+      <DependentUpon>SimulatingStatisticsAnalyzeMain.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="ClassDiagram1.cd" />

@@ -90,7 +90,7 @@
             this.resultRichTextBox.ReadOnly = true;
             this.resultRichTextBox.Size = new System.Drawing.Size(382, 255);
             this.resultRichTextBox.TabIndex = 0;
-            this.resultRichTextBox.Text = "线性回归分析结果展示……";
+            this.resultRichTextBox.Text = "分类分析结果展示……";
             // 
             // panel2
             // 
@@ -111,7 +111,7 @@
             this.startButton.Name = "startButton";
             this.startButton.Size = new System.Drawing.Size(187, 25);
             this.startButton.TabIndex = 0;
-            this.startButton.Text = "开始线性回归分析";
+            this.startButton.Text = "开始分类分析";
             this.startButton.UseVisualStyleBackColor = false;
             this.startButton.Click += new System.EventHandler(this.startButton_Click);
             // 
@@ -176,7 +176,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.IsMdiContainer = true;
             this.Name = "ClassifyMain";
-            this.Text = "挖掘算法之平凡项集";
+            this.Text = "挖掘算法之分类分析";
             this.Load += new System.EventHandler(this.LinearBackAnalyzeMain_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

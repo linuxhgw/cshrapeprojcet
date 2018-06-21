@@ -69,20 +69,22 @@ namespace Analysis.Classify
 
         {
 
-            this.resultRichTextBox.Text = "线性回归分析结果展示……";
+            this.resultRichTextBox.Text = "分类分析结果展示……\n";
 
             List<string> reqRecord=model.GetLateNameStatus();
             string reqAttr=reqRecord[2];
             double temp;
             int i;
-            string reqStr = "attrId=datacollect1-1-1-3&steplength=1-5000";//请求服务字符串：方案名-运行次数-成员-属性
+            string reqStr = "attrId=datacollect1-1-1-3&steplength=1-2000";//请求服务字符串：方案名-运行次数-成员-属性
             string reqStrTest = "attrId=datacollect";
             reqStrTest = reqStrTest + model.GetLateIdStatus()[0] + "-";//方案
             reqStrTest = reqStrTest + model.GetHistoryrun()[0] + "-";// 运行次数
             reqStrTest = reqStrTest + model.GetLateIdStatus()[1] + "-";//成员1
             reqStrTest = reqStrTest + model.GetLateIdStatus()[1]  ;//属性1
-      
-            reqStrTest = reqStrTest + "&steplength=1-5000";//步长
+
+            reqStrTest = reqStrTest + "&steplength=";
+            reqStrTest = reqStrTest + model.getStartStep() + "-";
+            reqStrTest = reqStrTest + model.getEndStep() ;
             Console.WriteLine("reqstrTest_____" + reqStrTest);
 
 

@@ -176,7 +176,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.IsMdiContainer = true;
             this.Name = "DigAssociationAnalyzeMain";
-            this.Text = "挖掘算法之平凡项集";
+            this.Text = "挖掘算法之关联分析";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.DigAssociationAnalyzeMain_Load);
             this.tableLayoutPanel1.ResumeLayout(false);

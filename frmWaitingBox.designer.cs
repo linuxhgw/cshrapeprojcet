@@ -22,7 +22,6 @@
 
         #region Windows Form Designer generated code
 
-
         /// <summary>
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
@@ -32,9 +31,9 @@
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.labTimer = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.labMessage = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -62,6 +61,15 @@
             this.labTimer.TabIndex = 6;
             this.labTimer.Text = "0秒";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Analysis.Properties.Resources._218ede1481a165d2bc4c971e949b0202;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(143, 133);
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+            // 
             // labMessage
             // 
             this.labMessage.AutoSize = true;
@@ -77,15 +85,6 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Analysis.Properties.Resources._218ede1481a165d2bc4c971e949b0202;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(143, 133);
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
-            // 
             // frmWaitingBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -96,6 +95,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmWaitingBox";
             this.Padding = new System.Windows.Forms.Padding(4);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmWaitingBox";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmWaitingBox_FormClosing);
             this.Shown += new System.EventHandler(this.frmWaitingBox_Shown);

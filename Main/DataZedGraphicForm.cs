@@ -29,7 +29,7 @@ namespace Analysis
             PointPairList list = new PointPairList();
             string result = service.HttpGet(stepValueURL + reqStr);
             string[] arrStepValue = result.Split('-');
-            for (int i = 0; i + 1 < arrStepValue.Length; i = i + 2)
+            for (int i = 0; i < arrStepValue.Length-2; i = i + 2)
             {
                 list.Add(Double.Parse(arrStepValue[i]), Double.Parse(arrStepValue[i + 1]));
             }
@@ -157,24 +157,26 @@ namespace Analysis
             //#endregion
 
         }
-        public List<int> ExchangeColor()
+        public Color ExchangeColor()
         {
 
-            List<int> listRGB = new List<int>();
+            Random RandomNum_First = new Random((int)DateTime.Now.Ticks);
+            //  对于C#的随机数，没什么好说的
+            System.Threading.Thread.Sleep(RandomNum_First.Next(50));
+            Random RandomNum_Sencond = new Random((int)DateTime.Now.Ticks);
 
-            Random ro = new Random(10);
-            long tick = DateTime.Now.Ticks;
-            Random ran = new Random((int)(tick & 0xffffffffL) | (int)(tick >> 32));
+            //  为了在白色背景上显示，尽量生成深色
+            int int_Red = RandomNum_First.Next(256);
+            int int_Green = RandomNum_Sencond.Next(256);
+            int int_Blue = (int_Red + int_Green > 400) ? 0 : 400 - int_Red - int_Green;
+            int_Blue = (int_Blue > 255) ? 255 : int_Blue;
 
-            int R = ran.Next(255);
-            int G = ran.Next(255);
-            int B = ran.Next(255);
-            B = (R + G > 400) ? R + G - 400 : B;//0 : 380 - R - G;
-            B = (B > 255) ? 255 : B;
-            listRGB.Add(R);
-            listRGB.Add(G);
-            listRGB.Add(B);
-            return listRGB;
+            return Color.FromArgb(int_Red, int_Green, int_Blue);
+
+
+
+
+            
 
 
         }
@@ -188,19 +190,15 @@ namespace Analysis
 
             GraphPane my = this.zedGraphControl1.GraphPane;
             List<int> list = new List<int>();
-            list = ExchangeColor();
-
-            int R = list[0];
-            int G = list[1];
-            int B = list[2];
+          
 
             LineItem myCurve;
 
 
 
-            myCurve = my.AddCurve("对比数据", list1, Color.FromArgb(R, G, B), SymbolType.Circle);
+            myCurve = my.AddCurve("对比数据", list1,ExchangeColor(), SymbolType.Circle);
 
-            myCurve.Symbol.Fill = new Fill(Color.FromArgb(R, G, B));
+           
 
 
         }
@@ -216,7 +214,7 @@ namespace Analysis
             zedgraphcontrol.GraphPane.XAxis.Title.Text = "步长";
             zedgraphcontrol.GraphPane.YAxis.Title.Text = "数量";
 
-            myCurve = myPane.AddCurve("对比数据", list1, Color.DarkGreen, SymbolType.Circle);
+            myCurve = myPane.AddCurve("对比数据", list1, ExchangeColor(), SymbolType.Circle);
 
 
         }

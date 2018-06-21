@@ -85,7 +85,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.IsMdiContainer = true;
             this.Name = "SimulatingStatisticsAnalyzeMain";
-            this.Text = "SimulatingStatisticsAnalyzeMain";
+            this.Text = "仿真时域分析";
             this.Load += new System.EventHandler(this.SimulatingStatisticsAnalyzeMain_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);

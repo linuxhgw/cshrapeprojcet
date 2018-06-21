@@ -142,6 +142,18 @@ namespace Analysis
             createZedPane2();
         }
 
-        
+        protected override void defaultButton_Click(object sender, EventArgs e) {
+            for (int i = 0; i <myPane.CurveList.Count; i++)
+            {
+                if (myPane.CurveList[i] == item) {
+                    myPane.CurveList[i].IsVisible = false;
+                }
+            }
+            this.zedGraphControl.AxisChange();
+            this.zedGraphControl.Refresh();
+
+        }
+
+
     }
 }

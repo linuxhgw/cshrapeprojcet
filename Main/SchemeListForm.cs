@@ -7,8 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Analysis {
-    public partial class SchemeListForm : WeifenLuo.WinFormsUI.Docking.DockContent {
+namespace Analysis
+{
+    public partial class SchemeListForm : WeifenLuo.WinFormsUI.Docking.DockContent
+    {
 
 
         public InteractiveAgent agent = InteractiveAgent.getInstance();
@@ -62,17 +64,17 @@ namespace Analysis {
             List<string> list = new List<string>();
             List<int> Listid = model.GetLateIdStatus();
 
-            
-          
-                Console.WriteLine(LoadFormula + param + Listid[0]);
-                string result = service.HttpGet(LoadFormula + param + Listid[0]);
-                string[] arrSchemeValue = result.Split(';');
-                for (int i = 0; i + 1 < arrSchemeValue.Length; i = i + 1)
-                {
-                    list.Add(arrSchemeValue[i]);
-                    Console.WriteLine(arrSchemeValue[i]);
-                }
-          
+
+
+            Console.WriteLine(LoadFormula + param + Listid[0]);
+            string result = service.HttpGet(LoadFormula + param + Listid[0]);
+            string[] arrSchemeValue = result.Split(';');
+            for (int i = 0; i + 1 < arrSchemeValue.Length; i = i + 1)
+            {
+                list.Add(arrSchemeValue[i]);
+                Console.WriteLine(arrSchemeValue[i]);
+            }
+
             return list;
         }
 
@@ -87,7 +89,7 @@ namespace Analysis {
                 agent.SchemeToAtrr();
                 agent.SchemeToRecord();
                 model.GetLateIdStatus();
-                if (e.Node.Level == 1 && e.Node.LastNode == null&&e.Node !=null)
+                if (e.Node.Level == 1 && e.Node.LastNode == null && e.Node != null)
                 {
                     List<string> Memberlist = getMemberFromService();
                     for (int i = 0; i < Memberlist.Count; i++)
@@ -96,31 +98,40 @@ namespace Analysis {
                         e.Node.Nodes.Add(temp);
                         temp.Nodes.Add(new TreeNode(Memberlist[i]));
                     }
+                    e.Node.Expand();
                 }
 
                 //  getjson getjson = new getjson();
                 // getjson.getjson1();
 
-                if (e.Node.Text.Equals("test-1"))
+                if (e.Node.Text.Equals("test-1") ||
+                    e.Node.Text.Equals("test-2") ||
+                    e.Node.Text.Equals("test-3"))
                 {
 
                     agent.SchemeToRuntimes();
+                }
+                if (e.Node.Text.Equals("全部方案信息") && e.Node.LastNode == null)
+                {
+                    List<string> list = new List<string>();
+
+                    list = getSchemeFromService();
+                    for (int i = 0; i < list.Count; i++)
+                    {
+                        node1.Nodes.Add(new TreeNode(list[i]));
+                    }
+                    node1.Expand();
+
                 }
             }
         }
 
         private void SchemeListForm_Load(object sender, EventArgs e)
         {
-            List<string> list = new List<string>();
-            list = getSchemeFromService();
-           node1 = treeView1.Nodes.Add("全部方案信息");
 
-                for (int i = 0; i < list.Count; i++)
-                {
-                    node1.Nodes.Add(new TreeNode(list[i]));
-                }
-            
-          
+            node1 = treeView1.Nodes.Add("全部方案信息");
+
+
 
 
 

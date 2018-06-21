@@ -156,7 +156,7 @@
             this.IsMdiContainer = true;
             this.Name = "AsscociationAnalyzeMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "AsscociationAnalyzeMain";
+            this.Text = "挖掘算法之简单线性关联";
             this.Load += new System.EventHandler(this.AsscociationAnalyzeMain_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

@@ -14,7 +14,7 @@ namespace Analysis
     public class DataFromService
     {
 
-        frmWaitingBox frmWaitingBox;
+        
         string retString = "";
         //http获取服务端数据
         public string HttpGet(string url)
